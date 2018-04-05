@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Spacia</string>
+
+    <string name="no_internet">No hay conexión a internet</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="forgot_password_body">A continuación, ingresa tu email para recibir las instrucciones de restablecimiento de contraseña.</string>
+    <string name="forgot_passwrod_btn">Recuperar contraseña</string>
+    <string name="forgot_ayuda">¿Necesitas ayuda?</string>
+    <string name="forgot_numero">(+51) 989281294</string>
 </resources>

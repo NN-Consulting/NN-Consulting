@@ -1,112 +1,39 @@
 apply plugin: 'com.android.application'
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'me.tatarka:gradle-retrolambda:3.6.1'
-    }
-}
-
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 27
     defaultConfig {
-        applicationId "nnconsulting.app.spacia"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        applicationId "com.losnn.spacia"
+        minSdkVersion 21
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        multiDexEnabled true
     }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
     buildTypes {
-        debug {
-            minifyEnabled false
-            // Uses new built-in shrinker http://tools.android.com/tech-docs/new-build-system/built-in-shrinker
-            useProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
-        }
-
         release {
-            minifyEnabled true
-            useProguard true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
     }
-
-    // If you need to add more flavors, consider using flavor dimensions.
-    productFlavors {
-        mock {
-            flavorDimensions 'default'
-            buildConfigField 'String', 'BASE', '"http://159.65.35.171/api/v1/"'
-            applicationIdSuffix = ".test"
-        }
-        prod {
-            flavorDimensions 'default'
-            buildConfigField 'String', 'BASE', '"http://159.65.35.171/api/v1/"'
-        }
-    }
-
-    // Remove mockRelease as it's not needed.
-    android.variantFilter { variant ->
-        if (variant.buildType.name == 'release'
-                && variant.getFlavors().get(0).name == 'mock') {
-            variant.setIgnore(true);
-        }
-    }
-    buildToolsVersion '27.0.3'
 }
 
 dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testCompile 'junit:junit:4.12'
-    compile supportDesignLibraries.appcompat
-    compile supportDesignLibraries.design
-    compile supportDesignLibraries.recyclerView
-    compile supportDesignLibraries.supportv4
-    compile supportDesignLibraries.supportv13
-    compile supportDesignLibraries.cardview
-    compile coreProject.retrofit
-    compile coreProject.retrofitGson
-    compile coreProject.gson
-    compile coreProject.interceptor
-    compile coreProject.butterKnife
-    annotationProcessor coreProject.butterknifeProcesor
-    compile helpLibraries.guava
-    compile helpLibraries.calligraphy
-    compile helpLibraries.saaripar
-    compile helpLibraries.pagerIndicator
-    compile helpLibraries.multidex
-    //compile helpLibraries.bottomBar
-    compile imagesLoader.glide
-    compile facebookCore.facebookLogin
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:support-v13:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
 
-    compile googleService.maps
-    compile googleService.allServices
-    compile googleService.location
-
-    compile('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
-        exclude module: 'support-v4'
-    }
-    compile('com.github.florent37:materialviewpager:1.2.0@aar') {
-        transitive = true
-    }
-    compile 'me.relex:circleindicator:1.2.2@aar'
-    compile 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 }

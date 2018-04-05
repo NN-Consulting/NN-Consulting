@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#74afbf</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#549fb4</color>
 
     <color name="material_red50">#ffffebee</color>
     <color name="material_red100">#ffffcdd2</color>
@@ -280,9 +280,9 @@
     <color name="material_bluegrey900">#ff263238</color>
 
 
+    <color name="material_tab">#ECEEF1</color>
 
     <color name="material_black">#ff000000</color>
-    <color name="material_white">#ffffffff</color>
+    <color name="material_white">#ffffff</color>
 
-    <color name="background_cancha_favorite">#F5F6F8</color>
 </resources>
