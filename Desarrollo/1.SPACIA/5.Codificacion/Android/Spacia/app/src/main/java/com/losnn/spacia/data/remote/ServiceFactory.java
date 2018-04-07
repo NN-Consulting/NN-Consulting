@@ -1,5 +1,7 @@
 package com.losnn.spacia.data.remote;
 
+import com.losnn.spacia.BuildConfig;
+
 import java.security.cert.CertificateException;
 
 import javax.net.ssl.SSLContext;
@@ -14,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceFactory {
 
-    private static final String API_BASE_URL = "";
+    private static final String API_BASE_URL = BuildConfig.BASE;
 
     public static <S> S createService(Class<S> serviceClass) {
         Retrofit.Builder builder =

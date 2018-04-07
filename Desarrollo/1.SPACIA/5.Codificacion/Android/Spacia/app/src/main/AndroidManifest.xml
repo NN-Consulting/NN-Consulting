@@ -26,7 +26,6 @@
         </activity>
         <activity android:name=".presentation.activities.LoginActivity"
             android:theme="@style/AppTheme">
-
         </activity>
     </application>
 

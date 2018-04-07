@@ -8,4 +8,8 @@
     <string name="forgot_passwrod_btn">Recuperar contraseña</string>
     <string name="forgot_ayuda">¿Necesitas ayuda?</string>
     <string name="forgot_numero">(+51) 989281294</string>
+    <string name="user_wrong">Email y/o contraseña son incorrectos</string>
+    <string name="error_connect">Hubo un error en la conexión</string>
+    <string name="modal_login">Inciando Sesión</string>
+    <string name="user_noexist">Este email no se encuentra registrado en Spacia</string>
 </resources>

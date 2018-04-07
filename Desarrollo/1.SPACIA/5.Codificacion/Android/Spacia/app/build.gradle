@@ -16,6 +16,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        mock {
+            flavorDimensions 'default'
+            buildConfigField 'String', 'BASE', '"http://127.0.0.1:8000/api/v1/"'
+            applicationIdSuffix = ".test"
+        }
+        prod {
+
+            flavorDimensions 'default'
+            buildConfigField 'String', 'BASE', '"http://127.0.0.1:8000/api/v1/"'
+            applicationIdSuffix = ".prod"
+        }
+    }
 }
 
 dependencies {
@@ -36,4 +49,5 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.1.0'
 }

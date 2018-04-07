@@ -26,4 +26,15 @@
         <item name="android:textColorHint">@color/material_grey500</item>
     </style>
 
+    <style name="MyDialog3" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/bg_dialogfragment</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowMinWidthMajor">70%</item>
+        <item name="android:windowMinWidthMinor">70%</item>
+    </style>
+
+
 </resources>

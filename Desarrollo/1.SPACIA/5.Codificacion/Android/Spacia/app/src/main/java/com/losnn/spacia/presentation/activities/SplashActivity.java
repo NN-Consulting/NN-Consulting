@@ -10,8 +10,10 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.losnn.spacia.MainActivity;
 import com.losnn.spacia.R;
 import com.losnn.spacia.base.BaseActivity;
+import com.losnn.spacia.data.local.SessionManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,18 +29,18 @@ public class SplashActivity extends BaseActivity{
         setContentView(R.layout.activity_splashscreen);
         ButterKnife.bind(this);
         animateImageView(ivSplashLogo);
-        //SessionManager sessionManager = new SessionManager(getApplicationContext());
+        final SessionManager sessionManager = new SessionManager(getApplicationContext());
         Thread t = new Thread() {
             public void run() {
                 try {
-                    sleep(2500);
+                    sleep(3000);
                     nextActivity(SplashActivity.this,null,LoginActivity.class,true);
-                   /* if(sessionManager.isIntro()) {
-                        startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+                    if(sessionManager.isIntro()) {
+                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
                     }else{
-                        startActivity(new Intent(SplashActivity.this,IntroActivity.class));
+                        startActivity(new Intent(SplashActivity.this,LoginActivity.class));
                     }
-                    finish();*/
+                    finish();
 
                 } catch (Exception e) {
                     //nothing
