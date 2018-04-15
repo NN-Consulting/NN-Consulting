@@ -17,7 +17,12 @@ namespace Spacia.Web.Controllers
 
         public IActionResult Login()
         {
-            return View();
+            return View("Login");
+        }
+
+        public IActionResult RecoverPassword(){
+            
+            return View("RecoverPassword");
         }
 
         public IActionResult About()
