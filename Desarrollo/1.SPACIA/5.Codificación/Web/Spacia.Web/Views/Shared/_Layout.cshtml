@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Spacia.Web</title>
+    <title>@ViewData["Title"] - Spacia</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/Login.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -15,6 +17,8 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
+
 </head>
 <body>
     @*<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -39,6 +43,16 @@
     </nav>*@
     <div style="height:100%">
         @RenderBody()
+       <div class="footer">
+           <div class="content__footer">
+            <div class="content__footer1">
+                <p class="footer__text">SPACIA® 2018. TODOS LOS DERECHOS RESERVADOS.</p>
+             </div>
+             <div class="content__footer2">
+                <span class="footer__text2">HECHO CON &nbsp <img class="image__carazon" src="~/images/like.png"> &nbsp POR NN-CONSULTING.</span>       
+             </div>
+            </div>
+        </div>
     </div>
 
     <environment include="Development">
