@@ -1,0 +1,11 @@
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/bin/Debug/netcoreapp2.0/Spacia.Web.deps.json
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/bin/Debug/netcoreapp2.0/Spacia.Web.runtimeconfig.json
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/bin/Debug/netcoreapp2.0/Spacia.Web.runtimeconfig.dev.json
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/bin/Debug/netcoreapp2.0/Spacia.Web.dll
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/bin/Debug/netcoreapp2.0/Spacia.Web.pdb
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/obj/Debug/netcoreapp2.0/Spacia.Web.csprojResolveAssemblyReference.cache
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/obj/Debug/netcoreapp2.0/Spacia.Web.csproj.CoreCompileInputs.cache
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/obj/Debug/netcoreapp2.0/Spacia.Web.AssemblyInfoInputs.cache
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/obj/Debug/netcoreapp2.0/Spacia.Web.AssemblyInfo.cs
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/obj/Debug/netcoreapp2.0/Spacia.Web.dll
+/Users/EduardoAngulo/Desktop/Spacia.Web/Spacia.Web/obj/Debug/netcoreapp2.0/Spacia.Web.pdb
