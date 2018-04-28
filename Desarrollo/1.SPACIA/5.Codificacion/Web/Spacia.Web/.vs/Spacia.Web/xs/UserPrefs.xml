@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{F6507DD1-A7E2-41B5-862A-EA0AF9B6D349}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Home/Login.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Home/Panel.cshtml">
     <Files>
-      <File FileName="Views/Home/Login.cshtml" Line="31" Column="87" />
+      <File FileName="Views/Home/Login.cshtml" Line="15" Column="17" />
       <File FileName="Views/Shared/_Layout.cshtml" Line="30" Column="38" />
       <File FileName="Controllers/HomeController.cs" Line="30" Column="10" />
       <File FileName="wwwroot/script/otros.js" Line="21" Column="25" />
-      <File FileName="Views/Home/RecoverPassword.cshtml" Line="31" Column="119" />
+      <File FileName="Views/Home/RecoverPassword.cshtml" Line="15" Column="14" />
+      <File FileName="Views/Home/Panel.cshtml" Line="10" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
