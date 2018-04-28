@@ -1,19 +1,56 @@
 @{
-    ViewData["Title"] = "LOGIN";
+    ViewBag.Title = "Login";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Random rnd = new Random();
+    int valRand = rnd.Next(10000);
 }
 
-<div class="fondo">
-  <div class="login__fondo_e">
-    <div class="content__elementos">
-      <div class="image__spacia"><img src="../images/spacia_logo.png" alt="logo"></div>
-      <input class="login__input" type="text" name="usuario" id="usuario">
-      <input class="login__input" type="password" name="contrasena" id="contrasena">
-      <button class="login__button" type="button" name="iniciar" id="inciar">Iniciar Sesión</button><br>
-      <a class="login__forget" asp-controller="Home" asp-action="RecoverPassword">¿Olvidaste tu contraseña?</a>
-    </div>
-  </div>
-
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Listado de Cuadrillas</title>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <script type="text/javascript" src="@Url.Content("~/script/otros.js?v=")@valRand"></script>
  
-</div>
+</head>
+<body>
+    @Html.Partial("~/Views/Shared/Loading.cshtml")
+
+    <div class="fondo">
+        <div class="login_fondo_e">
+            <div class="content_elementos">
+                <div class="image_spacia"><img src="../images/spacia_logo.png" alt="logo">
+                </div>
+                <input class="login_input" type="text" name="usuario" id="iptUsuario" placeholder="usuario" >
+                <input class="login_input" type="password" name="contrasena" id="iptContrasena" placeholder="contraseña">
+                <button class="login_button" type="button" name="iniciar" id="btnIniciarSesion">Iniciar sesión</button><br>
+                <a class="login_forget" asp-controller="Home" asp-action="RecoverPassword">¿Olvidaste tu contraseña?</a>
+            </div>
+        </div>
+    </div>
+        
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //console.log('hola');
+            $("#btnIniciarSesion").click(function(){
+                //Evaluar los accesos en backend
+                //window.location.href = '../Home/Panel';
+                MensajeError('Esta opcion se encuentra en Desarrollo. ', 'left');
+            });
+        });
+            
+    </script>
+    <style>
+            
+    </style>
+</body>
+</html>
 
 

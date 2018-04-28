@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Panel";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Random rnd = new Random();
+    int valRand = rnd.Next(10000);
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Listado de Cuadrillas</title>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <script type="text/javascript" src="@Url.Content("~/script/otros.js?v=")@valRand"></script>
+ 
+</head>
+<body>
+    @Html.Partial("~/Views/Shared/Loading.cshtml")
+        
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //console.log('hola');
+            
+        });
+            
+    </script>
+    <style>
+            
+    </style>
+</body>
+</html>
+
+
