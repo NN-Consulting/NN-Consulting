@@ -19,13 +19,13 @@ android {
     productFlavors {
         mock {
             flavorDimensions 'default'
-            buildConfigField 'String', 'BASE', '"http://127.0.0.1:8000/api/v1/"'
+            buildConfigField 'String', 'BASE', '"http://206.81.6.211/api/v1/"'
             applicationIdSuffix = ".test"
         }
         prod {
 
             flavorDimensions 'default'
-            buildConfigField 'String', 'BASE', '"http://127.0.0.1:8000/api/v1/"'
+            buildConfigField 'String', 'BASE', '"http://206.81.6.211/api/v1/"'
             applicationIdSuffix = ".prod"
         }
     }

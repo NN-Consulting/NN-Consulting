@@ -36,7 +36,7 @@ public class SplashActivity extends BaseActivity{
                     sleep(3000);
                     nextActivity(SplashActivity.this,null,LoginActivity.class,true);
                     if(sessionManager.isIntro()) {
-                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                        startActivity(new Intent(SplashActivity.this, HomeActivity.class));
                     }else{
                         startActivity(new Intent(SplashActivity.this,LoginActivity.class));
                     }

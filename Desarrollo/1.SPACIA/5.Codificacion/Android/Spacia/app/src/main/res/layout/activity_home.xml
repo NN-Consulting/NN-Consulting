@@ -17,6 +17,17 @@
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:src="@drawable/logo_h"/>
+
+            <ImageView
+                android:id="@+id/btn_logout"
+                android:layout_alignParentRight="true"
+                android:padding="6dp"
+                android:tint="@color/material_white"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:src="@drawable/logout"/>
+
         </RelativeLayout>
         <View
             android:layout_height="1dp"

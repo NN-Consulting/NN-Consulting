@@ -64,6 +64,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
         animationDrawable.setEnterFadeDuration(4000);
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();
+        dialogFragment = LoadingMessageDialogFragment.newInstance();
 
 
         txtForgotPassword.setOnClickListener(new View.OnClickListener() {
@@ -75,10 +76,13 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hideKeyboard();
                 txtResponse.setVisibility(View.GONE);
                 validator.validate();
             }
         });
+
+
 
 
     }
@@ -107,7 +111,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
 
     @Override
     public void logginSuccessfully() {
-        nextActivity(LoginActivity.this,null,MainActivity.class,true);
+        nextActivity(LoginActivity.this,null,HomeActivity.class,true);
     }
 
 

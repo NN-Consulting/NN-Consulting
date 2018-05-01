@@ -11,5 +11,10 @@
     <string name="user_wrong">Email y/o contraseña son incorrectos</string>
     <string name="error_connect">Hubo un error en la conexión</string>
     <string name="modal_login">Inciando Sesión</string>
-    <string name="user_noexist">Este email no se encuentra registrado en Spacia</string>
+    <string name="user_noexist">Este usuario no se encuentra registrado en Spacia</string>
+    <string name="email_wrong">Este email no se encuentra registrado en Spacia</string>
+    <string name="loading_process">Cargando</string>
+    <string name="message_customize">Mensaje Personalizado</string>
+    <string name="btn_accepted">Aceptar</string>
+    <string name="modal_logout">Cerrar sesión</string>
 </resources>

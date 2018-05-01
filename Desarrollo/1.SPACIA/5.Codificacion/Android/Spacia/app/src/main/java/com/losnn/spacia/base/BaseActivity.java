@@ -35,7 +35,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             snackbar.setActionTextColor(Color.WHITE);
 
             View sbView = snackbar.getView();
-            sbView.setBackgroundColor(this.getResources().getColor(R.color.colorAccent));
+            sbView.setBackgroundColor(this.getResources().getColor(R.color.material_red600));
             TextView textView = sbView.findViewById(android.support.design.R.id.snackbar_text);
             textView.setTextColor(Color.WHITE);
             snackbar.show();

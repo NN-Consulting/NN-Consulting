@@ -55,7 +55,7 @@ public class SessionManager {
         editor.putString(USER_ACCESS_TOKEN, null);
         editor.putString(USER_REFRESH_TOKEN, null);
         editor.putString(USER_JSON, null);
-        editor.putBoolean(IS_INTRO,true);
+        editor.putBoolean(IS_INTRO,false);
         editor.commit();
     }
 
