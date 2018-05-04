@@ -1,0 +1,11 @@
+﻿.menu_lateral_panel {
+    background-color: #4E606E;
+    height: 97.2%;
+    position: absolute;
+}
+.zona_trabajo_panel {
+    background-color: #7EBBCC;
+    height: 97.2%;
+    position: absolute;
+    right: 0;
+}
