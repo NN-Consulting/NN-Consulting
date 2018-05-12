@@ -1,11 +1,215 @@
-﻿.menu_lateral_panel {
-    background-color: #4E606E;
-    height: 97.2%;
-    position: absolute;
+﻿.center_absolute_div {
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    max-height:100%;
 }
+
+.menu_lateral_panel {
+    background-color: #4E606E;
+    height: 85%;
+    top: 15%;
+    position: absolute
+}
+
 .zona_trabajo_panel {
-    background-color: #7EBBCC;
-    height: 97.2%;
+    background-color: #ebebeb;
+    height: 85%;
+    position: absolute;
+    top: 15%;
+    right: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.logo_panel {
+    background-color: #3C5161;
+    height: 15%;
+    position: absolute;
+    left: 0;
+    margin:0 auto;
+}
+
+.logo_icon {
+    max-width: 100%;
+    max-height: 100%
+}
+
+.header_trabajo_panel {
+    height: 15%;
     position: absolute;
     right: 0;
+    background-color: #7EBBCC;
+    margin: 0 auto
+}
+.lbl_planificador {
+    color: #4E606E;
+    font-size: 30px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+}
+
+#left_arrow {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) ;
+    right: 55%;
+    z-index:1;
+}
+
+#right_arrow {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+
+}
+
+.lbl_month {
+    color: #ffffff;
+    font-size: 35px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 100;
+    padding-left: 25%;
+    padding-right: 1%;
+    float: right;
+
+}
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc {
+    background: none
+
+}
+
+.dataTable > thead > tr > th[class*="sort"]:after {
+    display:none !important;
+    width:1px;
+}
+
+.col-sm-12
+{
+    padding-right:0px;
+
+}
+
+#tablaAgenda {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important
+
+}
+
+.day_wrap_header {
+    height: 70px;
+    background-color: #EBEBEB;
+
+}
+
+.day_header {
+    color: #BC0034;
+    margin: 0 auto;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 22px;
+}
+
+.day_desc_header {
+    color: #4E606E;
+    margin: 0 auto;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    font-size: 16px
+}
+
+.day_wrap_body {
+    background-color: #F5F5F5;
+    margin: 0 auto;
+    height:60px;
+    padding-top:15px;
+}
+
+.day_exist_body {
+    color: #4CB2E1;
+    margin: 0 auto;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 24px;
+}
+
+.day_no_exist_body {
+    color: #D2E1E5;
+    margin: 0 auto;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 24px;
+}
+
+.ambiente_wrap_header {
+    background-color: #A6CDD8;
+    height: 76px;
+    padding:15px;
+}
+
+.ambiente_header {
+    color: rgba(60, 81, 97, 0.87);
+    margin: 0 auto;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 16px;
+    padding: 5px;
+
+}
+.local_header {
+    color: #ffffff;
+    margin: 0 auto;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 24px
+}
+#ambiente_cantidad {
+    color: rgba(60, 81, 97, 0.87);
+    margin: 0 auto;
+    font-family: Montserrat;
+    font-style: normal;
+    line-height: normal;
+    font-size: 16px
+}
+#ambientes_wrap {
+    background-color: #D2E1E5;
+}
+
+#ambiente_wrap_body {
+    background-color: #D2E1E5;
+    padding: 15px;
+    height: 60.5px;
+    text-align: center;
+}
+
+.ambiente_body {
+    color: rgba(78, 96, 110, 0.54);
+    margin: 0 auto;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 12px
+
 }
