@@ -1,11 +1,10 @@
 package com.losnn.spacia.data.remote.request;
 
 import com.losnn.spacia.data.Constants;
-import com.losnn.spacia.data.remote.Response.AuthenticationResponse;
-import com.losnn.spacia.data.remote.Response.ProfileResponse;
+import com.losnn.spacia.data.remote.response.AuthenticationResponse;
+import com.losnn.spacia.data.remote.response.ProfileResponse;
 
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

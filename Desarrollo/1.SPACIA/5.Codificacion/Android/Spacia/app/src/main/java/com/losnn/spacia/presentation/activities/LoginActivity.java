@@ -43,9 +43,9 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
             EditText etEmail;
     @NotEmpty(message = "Campo requerido")
     @BindView(R.id.et_password)
-            EditText etPassword;
+    EditText etPassword;
     @BindView(R.id.txt_response)
-            TextView txtResponse;
+    TextView txtResponse;
 
     LoginContract.Presenter presenter;
     LoadingMessageDialogFragment dialogFragment;
@@ -64,6 +64,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
         animationDrawable.setEnterFadeDuration(4000);
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();
+
+
         dialogFragment = LoadingMessageDialogFragment.newInstance();
 
 

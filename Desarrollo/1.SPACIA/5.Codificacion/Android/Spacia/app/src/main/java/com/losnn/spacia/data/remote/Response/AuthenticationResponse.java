@@ -1,6 +1,4 @@
-package com.losnn.spacia.data.remote.Response;
-
-import java.util.List;
+package com.losnn.spacia.data.remote.response;
 
 public class AuthenticationResponse {
 

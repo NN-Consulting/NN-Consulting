@@ -2,6 +2,8 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinatorLayout">
 
     <RelativeLayout
@@ -50,13 +52,13 @@
             android:fontFamily="@font/ralewayregular"
             />
 
-        <FrameLayout
-            android:id="@+id/body"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_below="@id/txt_internet"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/txt_internet">
-        </FrameLayout>
-
+            tools:listitem="@layout/item_event"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 

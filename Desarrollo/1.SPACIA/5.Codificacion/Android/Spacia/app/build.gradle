@@ -44,10 +44,10 @@ dependencies {
     implementation 'com.android.support:support-v13:27.1.1'
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
-
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.github.ybq:Android-SpinKit:1.1.0'
+    implementation 'com.android.support:cardview-v7:27.1.1'
 }

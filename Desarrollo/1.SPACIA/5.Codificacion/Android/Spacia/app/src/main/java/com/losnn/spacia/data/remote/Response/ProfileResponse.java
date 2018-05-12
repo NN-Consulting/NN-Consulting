@@ -1,4 +1,4 @@
-package com.losnn.spacia.data.remote.Response;
+package com.losnn.spacia.data.remote.response;
 
 import com.losnn.spacia.data.entities.UserEntity;
 
