@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Panel";
+    Random rnd = new Random();
+    int valRand = rnd.Next(10000);
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Panel</title>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <script type="text/javascript" src="@Url.Content("~/script/otros.js?v=")@valRand"></script>
+    <script type="text/javascript" src="@Url.Content("~/script/panel.js?v=")@valRand"></script>
+</head>
+<body>
+    @Html.Partial("~/Views/Shared/Loading.cshtml")
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-2 col-md-2 logo_panel">
+                <img class ="logo_icon center_absolute_div" src="@Url.Content("~/images/spacia_logo.png")" />
+            </div>
+            <div class="col-xs-10 col-md-10 header_trabajo_panel">
+                <div class="col-xs-4 col-md-4 center_absolute_div" > 
+                    <span class="lbl_planificador">Planificador</span>
+                </div>
+                <div class="col-xs-8 col-md-8 center_absolute_div"> 
+                    <img id ="left_arrow" class ="col-md-1 col-lg-1" src="@Url.Content("~/images/left_arrow.png")" />
+                    <span class="lbl_month col-sm-8 col-md-9">16 Mar - 22 Mar</span>
+                    <img id ="right_arrow" class ="col-md-1 col-lg-1"src="@Url.Content("~/images/right_arrow.png")" />
+                </div>
+            </div>
+            </div>
+               
+        <div class="row">
+          <div class="col-xs-2 col-md-2 menu_lateral_panel">SPACIA</div>
+          <div class="col-xs-10 col-md-10 zona_trabajo_panel">
+            <div class="col-md-3" style="padding:0px;">
+                <div class="ambiente_wrap_header">
+                    <span class="local_header">Pichanga</span> 
+                            <br/>
+                     <span id="ambiente_cantidad">Nro Ambientes</span>  
+                </div>
+                <div id="ambientes_wrap">
+                </div>
+            </div>
+            <div class="col-md-9" style="padding-left: 0;">
+                <table id="tablaAgenda" class="table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="day_wrap_header">
+                                lun
+                            </th>
+                            <th class="day_wrap_header">
+                                mar
+                            </th>
+                            <th class="day_wrap_header">
+                                miér
+                            </th>
+                            <th class="day_wrap_header">
+                                jue
+                            </th>
+                            <th class="day_wrap_header">
+                                vie
+                            </th>
+                            <th class="day_wrap_header">
+                                sáb
+                            </th>
+                            <th class="day_wrap_header">
+                                dom
+                            </th>
+                        </tr>
+                    </thead>
+                 </table>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        
+        $(document).ready(function () {
+            initControlsPanel();
+        });
+            
+    </script>
+    <style>
+           
+    </style>
+</body>
+</html>
+
+

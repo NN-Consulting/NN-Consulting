@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spacia.Web", "Spacia.Web.csproj", "{F6507DD1-A7E2-41B5-862A-EA0AF9B6D349}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6507DD1-A7E2-41B5-862A-EA0AF9B6D349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6507DD1-A7E2-41B5-862A-EA0AF9B6D349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6507DD1-A7E2-41B5-862A-EA0AF9B6D349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6507DD1-A7E2-41B5-862A-EA0AF9B6D349}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

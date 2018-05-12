@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{F6507DD1-A7E2-41B5-862A-EA0AF9B6D349}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/css/site/Panel.css">
+    <Files>
+      <File FileName="Views/Home/Login.cshtml" Line="45" Column="50" />
+      <File FileName="Controllers/HomeController.cs" Line="39" Column="37" />
+      <File FileName="Views/Home/RecoverPassword.cshtml" Line="15" Column="14" />
+      <File FileName="Views/Home/Panel.cshtml" Line="87" Column="12" />
+      <File FileName="wwwroot/script/panel.js" Line="94" Column="26" />
+      <File FileName="Models/AgendamientoModel.cs" Line="15" Column="31" />
+      <File FileName="wwwroot/css/site/Panel.css" Line="87" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Spacia.Web PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
