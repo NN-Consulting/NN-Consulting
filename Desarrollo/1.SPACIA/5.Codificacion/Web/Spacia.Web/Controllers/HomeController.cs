@@ -49,7 +49,7 @@ namespace Spacia.Web.Controllers
             listadoAgendamiento.Add(eventoAgendado);
 
             eventoAgendado = new AgendamientoModel();
-            eventoAgendado.idEvento = "1";
+            eventoAgendado.idEvento = "2";
             eventoAgendado.descEvento = "Sala de Reuniones 1";
             eventoAgendado.cantMiercoles = 2;
             eventoAgendado.cantMartes = 5;

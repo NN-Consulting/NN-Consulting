@@ -1,4 +1,5 @@
 ﻿<Properties StartupConfiguration="{7925775E-BA51-447A-A2C7-90DE3219AE9D}|Default">
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Spacia.Web/Clases/EventsRESTService.cs">
     <Files>
       <File FileName="Spacia.Web/Views/Shared/Loading.cshtml" Line="11" Column="55" />
@@ -8,16 +9,27 @@
       <File FileName="Spacia.Web/Models/AgendamientoModel.cs" Line="22" Column="1" />
       <File FileName="Spacia.Web/Models/UserModel.cs" Line="18" Column="10" />
       <File FileName="Spacia.Web/Clases/EventsRESTService.cs" Line="48" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Spacia.Web/wwwroot/script/otros.js">
+    <Files>
+      <File FileName="Spacia.Web/Views/Home/Panel.cshtml" Line="115" Column="38" />
+      <File FileName="Spacia.Web/wwwroot/script/panel.js" Line="211" Column="2" />
+      <File FileName="Spacia.Web/wwwroot/script/otros.js" Line="1" Column="1" />
+>>>>>>> GHuaracc
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
+<<<<<<< HEAD
     <BreakpointStore>
       <Breakpoint file="/Users/EduardoAngulo/Desktop/Web/Spacia.Web/Clases/EventsRESTService.cs" relfile="Spacia.Web/Clases/EventsRESTService.cs" line="41" column="1" />
       <Breakpoint file="/Users/EduardoAngulo/Desktop/Web/Spacia.Web/Controllers/HomeController.cs" relfile="Spacia.Web/Controllers/HomeController.cs" line="41" column="1" />
       <Breakpoint file="/Users/EduardoAngulo/Desktop/Web/Spacia.Web/Clases/EventsRESTService.cs" relfile="Spacia.Web/Clases/EventsRESTService.cs" line="45" column="1" />
       <Breakpoint file="/Users/EduardoAngulo/Desktop/Web/Spacia.Web/Controllers/HomeController.cs" relfile="Spacia.Web/Controllers/HomeController.cs" line="39" column="1" />
     </BreakpointStore>
+=======
+    <BreakpointStore />
+>>>>>>> GHuaracc
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
