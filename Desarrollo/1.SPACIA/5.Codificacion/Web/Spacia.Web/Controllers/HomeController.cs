@@ -4,12 +4,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Spacia.Web.Clases;
 using Spacia.Web.Models;
 
 namespace Spacia.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private EventsRESTService service = new EventsRESTService();
+
         public IActionResult Index()
         {
             return View();
@@ -24,19 +27,42 @@ namespace Spacia.Web.Controllers
             
             return View("RecoverPassword");
         }
-
-        public IActionResult About()
+        public IActionResult Panel()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            return View("Panel");
         }
 
-        public IActionResult Contact()
+        [HttpPost]
+        public ActionResult ObtenerListaAgendamiento()
         {
-            ViewData["Message"] = "Your contact page.";
+            string data = "Eduardo";
+            List<AgendamientoModel> listadoAgendamientoDto = service.PostEvents(data);
+            listadoAgendamientoDto = service.GetEvents();
 
-            return View();
+            List<AgendamientoModel> listadoAgendamiento = new List<AgendamientoModel>();
+            AgendamientoModel eventoAgendado = new AgendamientoModel();
+            eventoAgendado.idEvento = "1";
+            eventoAgendado.descEvento = "Sala de Conferencias";
+            eventoAgendado.cantLunes = 2;
+            eventoAgendado.cantDomingo = 5;
+            eventoAgendado.capacidad = 30;
+            listadoAgendamiento.Add(eventoAgendado);
+
+            eventoAgendado = new AgendamientoModel();
+            eventoAgendado.idEvento = "1";
+            eventoAgendado.descEvento = "Sala de Reuniones 1";
+            eventoAgendado.cantMiercoles = 2;
+            eventoAgendado.cantMartes = 5;
+            eventoAgendado.capacidad = 35;
+            listadoAgendamiento.Add(eventoAgendado);
+
+            return Json(new
+            {
+                sEcho = Request.Query["draw"],
+                iTotalRecords = listadoAgendamiento.Count,
+                iTotalDisplayRecords = listadoAgendamiento.Count,
+                aaData = listadoAgendamiento
+            });
         }
 
         public IActionResult Error()

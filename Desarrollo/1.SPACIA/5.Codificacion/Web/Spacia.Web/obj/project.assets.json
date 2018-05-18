@@ -12533,23 +12533,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/gustavohuaracc/.nuget/packages/": {},
+    "/Users/EduardoAngulo/.nuget/packages/": {},
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gustavohuaracc/Desktop/NN-Consulting/Desarrollo/1.SPACIA/5.Codificación/Web/Spacia.Web/Spacia.Web.csproj",
+      "projectUniqueName": "/Users/EduardoAngulo/Desktop/Web/Spacia.Web/Spacia.Web.csproj",
       "projectName": "Spacia.Web",
-      "projectPath": "/Users/gustavohuaracc/Desktop/NN-Consulting/Desarrollo/1.SPACIA/5.Codificación/Web/Spacia.Web/Spacia.Web.csproj",
-      "packagesPath": "/Users/gustavohuaracc/.nuget/packages/",
-      "outputPath": "/Users/gustavohuaracc/Desktop/NN-Consulting/Desarrollo/1.SPACIA/5.Codificación/Web/Spacia.Web/obj",
+      "projectPath": "/Users/EduardoAngulo/Desktop/Web/Spacia.Web/Spacia.Web.csproj",
+      "packagesPath": "/Users/EduardoAngulo/.nuget/packages/",
+      "outputPath": "/Users/EduardoAngulo/Desktop/Web/Spacia.Web/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/gustavohuaracc/.config/NuGet/NuGet.Config"
+        "/Users/EduardoAngulo/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
