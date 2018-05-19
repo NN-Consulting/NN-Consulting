@@ -2,7 +2,7 @@
     var opts = {
         "closeButton": true,
         "debug": false,
-        "positionClass": "toast-top-" + position + "",
+        "positionClass": "toast-bottom-" + position + "",
         "onclick": null,
         "timeOut": "10000",
         "showEasing": "swing",

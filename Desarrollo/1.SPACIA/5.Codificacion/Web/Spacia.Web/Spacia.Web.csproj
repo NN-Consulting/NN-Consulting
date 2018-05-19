@@ -31,7 +31,6 @@
     <Folder Include="wwwroot\script\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\css\site\" />
-    <Folder Include="Clases\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\js\site.js" />

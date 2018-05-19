@@ -12539,11 +12539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/EduardoAngulo/Desktop/Web/Spacia.Web/Spacia.Web.csproj",
+      "projectUniqueName": "/Users/EduardoAngulo/Desktop/NN-Consulting/Desarrollo/1.SPACIA/5.Codificacion/Web/Spacia.Web/Spacia.Web.csproj",
       "projectName": "Spacia.Web",
-      "projectPath": "/Users/EduardoAngulo/Desktop/Web/Spacia.Web/Spacia.Web.csproj",
+      "projectPath": "/Users/EduardoAngulo/Desktop/NN-Consulting/Desarrollo/1.SPACIA/5.Codificacion/Web/Spacia.Web/Spacia.Web.csproj",
       "packagesPath": "/Users/EduardoAngulo/.nuget/packages/",
-      "outputPath": "/Users/EduardoAngulo/Desktop/Web/Spacia.Web/obj",
+      "outputPath": "/Users/EduardoAngulo/Desktop/NN-Consulting/Desarrollo/1.SPACIA/5.Codificacion/Web/Spacia.Web/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
