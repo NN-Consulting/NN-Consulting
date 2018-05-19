@@ -52,13 +52,60 @@
             android:fontFamily="@font/ralewayregular"
             />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+
+        <android.support.v4.widget.SwipeRefreshLayout
             android:layout_below="@id/txt_internet"
+            android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
-            tools:listitem="@layout/item_event"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"/>
+            android:orientation="vertical"
+            android:background="@color/material_white"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:id="@+id/emptyR"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="250dp"
+                        android:layout_height="200dp"
+                        android:visibility="visible"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/noreservas"
+                        android:gravity="center" />
+                    <TextView
+                        android:id="@+id/txt_message"
+                        android:paddingLeft="32dp"
+                        android:paddingRight="32dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:layout_width="match_parent"
+                        android:text="@string/no_events"
+                        android:fontFamily="@font/ralewaysemibold"
+                        android:textColor="@color/material_grey700"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    tools:listitem="@layout/item_event"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
 
     </RelativeLayout>
 

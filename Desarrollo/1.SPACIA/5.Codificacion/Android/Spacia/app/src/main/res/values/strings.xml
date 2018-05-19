@@ -17,4 +17,5 @@
     <string name="message_customize">Mensaje Personalizado</string>
     <string name="btn_accepted">Aceptar</string>
     <string name="modal_logout">Cerrar sesión</string>
+    <string name="no_events">Aún no se ha asignado ningún evento</string>
 </resources>

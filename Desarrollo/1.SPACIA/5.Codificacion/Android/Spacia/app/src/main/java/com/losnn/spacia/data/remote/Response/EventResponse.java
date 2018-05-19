@@ -94,7 +94,8 @@ public class EventResponse {
         this.resources = resources;
     }
 
-    private class Room {
+    public class Room {
+
         private int room_id;
         private String name;
         private int capacity;
@@ -165,7 +166,7 @@ public class EventResponse {
         }
     }
 
-    private class Resource {
+    public class Resource {
         private int resource_id;
         private String name;
 
