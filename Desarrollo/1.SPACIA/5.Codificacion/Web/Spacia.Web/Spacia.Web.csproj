@@ -100,4 +100,9 @@
   <ItemGroup>
     
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Clases\Informacion.cs" />
+    <Compile Remove="Clases\MiContexto.cs" />
+    <Compile Remove="Global.asax.cs" />
+  </ItemGroup>
 </Project>

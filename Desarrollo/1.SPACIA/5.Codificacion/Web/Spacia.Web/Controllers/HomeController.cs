@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Spacia.Web.Clases;
 using Spacia.Web.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Spacia.Web.Controllers
 {
@@ -29,15 +30,26 @@ namespace Spacia.Web.Controllers
         }
         public IActionResult Panel()
         {
-            return View("Panel");
+            var loginDto = GrabarSesion.TheData;
+            if(loginDto != null && loginDto.data != null)
+            {
+                if(!String.IsNullOrEmpty(loginDto.data.access_token))
+                    return View("Panel");
+                else
+                    return View("Login");
+            }
+            else
+            {
+                return View("Login");
+            }
         }
 
         [HttpPost]
-        public ActionResult ObtenerListaAgendamiento()
+        public ActionResult ObtenerListaAgendamiento(/*string name*/)
         {
-            string data = "Eduardo";
-            List<AgendamientoModel> listadoAgendamientoDto = service.PostEvents(data);
-            listadoAgendamientoDto = service.GetEvents();
+            //List<AgendamientoModel> listadoAgendamientoDto = service.PostEvents(name);
+            //List<AgendamientoModel> listadoAgendamientoDto = service.PostEvents();
+            //listadoAgendamientoDto = service.GetEvents();
 
             List<AgendamientoModel> listadoAgendamiento = new List<AgendamientoModel>();
             AgendamientoModel eventoAgendado = new AgendamientoModel();
@@ -63,6 +75,41 @@ namespace Spacia.Web.Controllers
                 iTotalDisplayRecords = listadoAgendamiento.Count,
                 aaData = listadoAgendamiento
             });
+        }
+
+        [HttpPost]
+        public ActionResult IniciarSesion(LoginModel loginDto)
+        {
+            loginDto = service.PostIniciarSesion(loginDto);
+            loginDto.comunicacion = new ComunicacionModel();
+            if(!String.IsNullOrEmpty(loginDto.error)){
+                loginDto.comunicacion.mensaje = loginDto.error;
+                loginDto.comunicacion.error = true;
+            }
+            else if (!String.IsNullOrEmpty(loginDto.message))
+            {
+                loginDto.comunicacion.mensaje = loginDto.message;
+                loginDto.comunicacion.error = false;
+                GrabarSesion.TheData = loginDto;
+            }
+            else
+            {
+                loginDto.comunicacion.mensaje = "No existe respuesta del servidor. ";
+                loginDto.comunicacion.error = true;
+            }
+            return Json(loginDto);
+        }
+
+        [HttpPost]
+        public ActionResult CerrarSesion()
+        {
+            var myData = GrabarSesion.TheData;
+            service.PostCerrarSesion(myData.data.access_token);
+            GrabarSesion.TheData = new LoginModel();
+            Response.Headers.Append("Cache-Control", "no-cache, no-store, must-revalidate");
+            Response.Headers.Append("Pragma", "no-cache");
+            Response.Headers.Append("Expires", "0");
+            return Json("");
         }
 
         public IActionResult Error()
