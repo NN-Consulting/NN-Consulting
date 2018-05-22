@@ -46,7 +46,6 @@ function initHeaderMonth(){
     var table = $('#tablaAgenda').DataTable();
     $('#tablaAgenda').empty();
     table.destroy();
-    var name = "Eduardo";
     var columns =
     [
         { "data": "cantLunes", "width": "14%", "sClass": "text-center " },
@@ -64,8 +63,8 @@ function initHeaderMonth(){
         for(index in json.aaData)
         {
             $('#ambientes_wrap').append('<div class="ambiente_wrap_body" style="height:60px;text-align:left;padding:10px;">'
-                                        +' <span class="ambiente_header">'+json.aaData[index].descEvento+'</span><br/>'
-                                        +'<span class="ambiente_body">Capacidad: '+json.aaData[index].capacidad+' ambientes</span></div>');
+                                        +' <span class="ambiente_header">'+json.aaData[index].name+'</span><br/>'
+                                        +'<span class="ambiente_body" style="padding: 5px;">Capacidad: '+json.aaData[index].capacity+' ambientes</span></div>');
         }
     }).dataTable({
         fixedHeader: {
@@ -83,7 +82,7 @@ function initHeaderMonth(){
         "ajax": {
             "url": "/Home/ObtenerListaAgendamiento",
             "data": {
-                "name": name
+                "date": formatDate(startOfWeek)
             },
             "type": 'POST',
             beforeSend: function () {
@@ -208,15 +207,13 @@ function ObtenerTitutloModal(){
 }
 
 function nuevo_(){
-    var contenidoMensaje="En Mantenimiento...";
+    var contenidoMensaje="Opción en Desarrollo. ";
     var position = "right";
     MensajeError(contenidoMensaje, position)
 }
 
 function CerrarSesion()
 {
-    debugger;
-    //var token = sessionStorage.getItem('token');
     jsShowWindowLoad();
     $.ajax({
         type: 'POST',
@@ -239,3 +236,4 @@ function CerrarSesion()
         }
     });
 }
+
