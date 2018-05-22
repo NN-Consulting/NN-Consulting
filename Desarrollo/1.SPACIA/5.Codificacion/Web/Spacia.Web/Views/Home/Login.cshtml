@@ -18,6 +18,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <script type="text/javascript" src="@Url.Content("~/script/otros.js?v=")@valRand"></script>
+    <script type="text/javascript" src="@Url.Content("~/script/login.js?v=")@valRand"></script>
  
 </head>
 <body>
@@ -39,11 +40,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             //console.log('hola');
-            $("#btnIniciarSesion").click(function(){
-                //Evaluar los accesos en backend
-                window.location.href = '../Home/Panel';
-                //MensajeError('Esta opcion se encuentra en Desarrollo. ', 'left');
-            });
+            initControls();
         });
             
     </script>

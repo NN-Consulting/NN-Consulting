@@ -46,6 +46,7 @@ function initHeaderMonth(){
     var table = $('#tablaAgenda').DataTable();
     $('#tablaAgenda').empty();
     table.destroy();
+    var name = "Eduardo";
     var columns =
     [
         { "data": "cantLunes", "width": "14%", "sClass": "text-center " },
@@ -82,6 +83,7 @@ function initHeaderMonth(){
         "ajax": {
             "url": "/Home/ObtenerListaAgendamiento",
             "data": {
+                "name": name
             },
             "type": 'POST',
             beforeSend: function () {
@@ -209,4 +211,31 @@ function nuevo_(){
     var contenidoMensaje="En Mantenimiento...";
     var position = "right";
     MensajeError(contenidoMensaje, position)
+}
+
+function CerrarSesion()
+{
+    debugger;
+    //var token = sessionStorage.getItem('token');
+    jsShowWindowLoad();
+    $.ajax({
+        type: 'POST',
+        url: '/Home/CerrarSesion',
+        dataType: 'json',
+        data: {
+            //token:token
+        },
+        success: function (data) {
+            //sessionStorage.setItem('token',"");
+            window.location.href = '../Home/Panel';
+        },
+        complete: function () {
+            jsRemoveWindowLoad();
+        },
+        error: function (xhr, status, error) {
+            jsRemoveWindowLoad();
+            $("#DivErrores").html(xhr.responseText);
+            $('#Errores').modal("show");
+        }
+    });
 }
