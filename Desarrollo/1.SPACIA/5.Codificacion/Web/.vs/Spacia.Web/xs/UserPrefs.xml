@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{7925775E-BA51-447A-A2C7-90DE3219AE9D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Spacia.Web/wwwroot/css/site/Panel.css">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Spacia.Web/Views/Shared/Loading.cshtml">
     <Files>
       <File FileName="Spacia.Web/wwwroot/script/panel.js" Line="121" Column="112" />
       <File FileName="Spacia.Web/Views/Home/Panel.cshtml" Line="38" Column="41" />
-      <File FileName="Spacia.Web/wwwroot/css/site/Panel.css" Line="61" Column="14" />
+      <File FileName="Spacia.Web/wwwroot/css/site/Panel.css" Line="68" Column="14" />
+      <File FileName="Spacia.Web/Views/Shared/Loading.cshtml" Line="11" Column="60" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
