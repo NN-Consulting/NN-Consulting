@@ -55,9 +55,10 @@
     max-height: 100%;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%) ;
+    transform: translateY(-50%);
     right: 55%;
-    z-index:1;
+    z-index: 1;
+    cursor:pointer;
 }
 
 #right_arrow {
@@ -67,7 +68,7 @@
     top: 50%;
     transform: translateY(-50%);
     right: 0;
-
+    cursor: pointer;
 }
 
 .lbl_month {

@@ -12,44 +12,10 @@ namespace Spacia.Web.Clases
 {
     public class EventsRESTService
     {
-        public List<AgendamientoModel> GetEvents()
-        {
-            string uri = "https://jsonplaceholder.typicode.com/posts/";
-
-            using (WebClient webClient = new WebClient())
-            {
-                return JsonConvert.DeserializeObject<List<AgendamientoModel>>(
-                    webClient.DownloadString(uri)
-                );
-            }
-        }
-
-        //public List<AgendamientoModel> PostEvents(string data)
-        public List<AgendamientoModel> PostEvents()
-        {
-            string uri = "https://jsonplaceholder.typicode.com/posts/";
-
-            using (WebClient webClient = new WebClient())
-            {
-                try
-                {
-                    webClient.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                    //string htmlResult = webClient.UploadString(uri, data);
-                    string htmlResult = webClient.UploadString(uri,"");
-                    AgendamientoModel flight = new AgendamientoModel();
-                    flight = JsonConvert.DeserializeObject<AgendamientoModel>(htmlResult);
-                    return new List<AgendamientoModel>();
-                }
-                catch(Exception e)
-                {
-                    throw e;
-                }
-            }
-        }
+        private static string uri = "http://206.81.6.211/api/v1";
 
         public LoginModel PostIniciarSesion(LoginModel loginDto)
         {
-            string uri = "http://206.81.6.211/api/v1/login";
             var data = JsonConvert.SerializeObject(loginDto);
             using (WebClient webClient = new WebClient())
             {
@@ -58,7 +24,7 @@ namespace Spacia.Web.Clases
                     webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
                     webClient.Headers[HttpRequestHeader.Accept] = "application/json";
 
-                    string htmlResult = webClient.UploadString(uri, data);
+                    string htmlResult = webClient.UploadString(uri + "/login", data);
 
                     LoginModel loginResponse = new LoginModel();
                     loginResponse = JsonConvert.DeserializeObject<LoginModel>(htmlResult);
@@ -84,7 +50,8 @@ namespace Spacia.Web.Clases
                                 loginResponse.error = "Usuario no autorizado. ";
                                 return loginResponse;
                             }
-                            else{
+                            else
+                            {
                                 throw ex;
                             }
                         default:
@@ -94,9 +61,8 @@ namespace Spacia.Web.Clases
             }
         }
 
-        public void PostCerrarSesion(string token)
+        public string PostCerrarSesion(string token)
         {
-            string uri = "http://206.81.6.211/api/v1/logout";
             var data = JsonConvert.SerializeObject(token);
             using (WebClient webClient = new WebClient())
             {
@@ -104,26 +70,94 @@ namespace Spacia.Web.Clases
                 {
                     webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
                     webClient.Headers[HttpRequestHeader.Accept] = "application/json";
-                    webClient.Headers[HttpRequestHeader.Authorization] = "Bearer "+token;
+                    webClient.Headers[HttpRequestHeader.Authorization] = "Bearer " + token;
 
-                    string htmlResult = webClient.UploadString(uri, "");
+                    return webClient.UploadString(uri + "/logout", "");
 
                 }
                 catch (WebException ex)
                 {
-                    switch (ex.Status)
-                    {
-                        case WebExceptionStatus.ConnectFailure:
-                            throw ex;
-                        case WebExceptionStatus.Timeout:
-                            throw ex;
-                        case WebExceptionStatus.NameResolutionFailure:
-                            throw ex;
-                        case WebExceptionStatus.ProtocolError:
-                            throw ex;
-                        default:
-                            throw ex;
-                    }
+                    Console.Write(ex);
+                    return "";
+                }
+            }
+        }
+
+        public string PostRecuperarContrasena(LoginModel loginDto)
+        {
+            var data = JsonConvert.SerializeObject(loginDto);
+            using (WebClient webClient = new WebClient())
+            {
+                try
+                {
+                    webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
+                    webClient.Headers[HttpRequestHeader.Accept] = "application/json";
+
+                    return webClient.UploadString(uri + "/reset-password", data);
+                }
+                catch (WebException ex)
+                {
+                    Console.Write(ex);
+                    return "";
+                }
+            }
+        }
+
+        /*public List<AgendamientoModel> GetEvents()
+        {
+            string uri = "https://jsonplaceholder.typicode.com/posts/";
+
+            using (WebClient webClient = new WebClient())
+            {
+                return JsonConvert.DeserializeObject<List<AgendamientoModel>>(
+                    webClient.DownloadString(uri)
+                );
+            }
+        }*/
+
+        public AgendamientoModel PostEvents(FiltroEventoModel filtroEvento, string token)
+        {
+            var data = JsonConvert.SerializeObject(filtroEvento);
+            using (WebClient webClient = new WebClient())
+            {
+                try
+                {
+                    webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
+                    webClient.Headers[HttpRequestHeader.Accept] = "application/json";
+                    webClient.Headers[HttpRequestHeader.Authorization] = "Bearer " + token;
+
+                    string htmlResult = webClient.UploadString(uri + "/events",data);
+
+                    return JsonConvert.DeserializeObject<AgendamientoModel>(htmlResult);
+                }
+                catch(Exception e)
+                {
+                    Console.Write(e);
+                    return new AgendamientoModel();
+                }
+            }
+        }
+
+        public DetalleModel PostDetalleEvents(FiltroEventoDetalleModel filtroEvento, string token)
+        {
+            var data = JsonConvert.SerializeObject(filtroEvento);
+
+            using (WebClient webClient = new WebClient())
+            {
+                try
+                {
+                    webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
+                    webClient.Headers[HttpRequestHeader.Accept] = "application/json";
+                    webClient.Headers[HttpRequestHeader.Authorization] = "Bearer " + token;
+
+                    string htmlResult = webClient.UploadString(uri + "/events", data);
+
+                    return JsonConvert.DeserializeObject<DetalleModel>(htmlResult);
+                }
+                catch (Exception e)
+                {
+                    Console.Write(e);
+                    return new DetalleModel();
                 }
             }
         }

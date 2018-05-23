@@ -1,14 +1,10 @@
-﻿
-function initControls()
+﻿function initControls()
 {
-    $("#btnIniciarSesion").click(function(){
-        //Evaluar los accesos en backend
-
+    $("#btnRecover").click(function(){
         var email = $('#iptUsuario').val();
-        var password = $('#iptContrasena').val();
         var entradaValida = true;
 
-        if(email == null || email == "" || password == null || password == "")
+        if(email == null || email == "")
         {
             entradaValida = false;
         }
@@ -17,24 +13,22 @@ function initControls()
             jsShowWindowLoad();
             $.ajax({
                 type: 'POST',
-                url: '/Home/IniciarSesion',
+                url: '/Home/RecuperarContrasena',
                 dataType: 'json',
                 data: {
-                    email: email,
-                    password: password
+                    email: email
                 },
                 sync: true,
                 success: function (jsonCombos) {
-                    var retorno = jsonCombos.comunicacion; 
-                    if(!retorno.error)
+                    var retorno = jsonCombos 
+                    if(retorno != "")
                     {
-                        MensajeConfirmacion("Bienvenido a SPACIA. ", 'right');
-                        //sessionStorage.setItem("token", jsonCombos.data.access_token); 
-                        window.location.href = '../Home/Panel';
+                        MensajeConfirmacion("El correo de recuperación fue enviado exitosamente. ", 'right');
                     }
                     else
                     {
-                        MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
+                        MensajeError("El correo no fue enviado exitosamente. Intente nuevamente. ", 'right');
+
                     }
                 },
                 complete: function () {
@@ -48,7 +42,10 @@ function initControls()
         }
         else
         {
-            MensajeError('Ingrese correctamente su usuario y contraseña. ', 'right');
+            MensajeError('Ingrese correctamente el correo eléctronico. ', 'right');
         }
+    });
+    $("#btnReturnLogin").click(function(){
+        window.location.href = '../Home/Login';
     });
 }

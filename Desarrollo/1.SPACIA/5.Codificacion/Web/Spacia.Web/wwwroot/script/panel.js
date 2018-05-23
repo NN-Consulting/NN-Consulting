@@ -46,7 +46,6 @@ function initHeaderMonth(){
     var table = $('#tablaAgenda').DataTable();
     $('#tablaAgenda').empty();
     table.destroy();
-    var name = "Eduardo";
     var columns =
     [
         { "data": "cantLunes", "width": "14%", "sClass": "text-center " },
@@ -64,8 +63,8 @@ function initHeaderMonth(){
         for(index in json.aaData)
         {
             $('#ambientes_wrap').append('<div class="ambiente_wrap_body" style="height:60px;text-align:left;padding:10px;">'
-                                        +' <span class="ambiente_header">'+json.aaData[index].descEvento+'</span><br/>'
-                                        +'<span class="ambiente_body">Capacidad: '+json.aaData[index].capacidad+' ambientes</span></div>');
+                                        +' <span class="ambiente_header">'+json.aaData[index].name+'</span><br/>'
+                                        +'<span class="ambiente_body" style="padding: 5px;">Capacidad: '+json.aaData[index].capacity+' ambientes</span></div>');
         }
     }).dataTable({
         fixedHeader: {
@@ -83,7 +82,7 @@ function initHeaderMonth(){
         "ajax": {
             "url": "/Home/ObtenerListaAgendamiento",
             "data": {
-                "name": name
+                "date": formatDate(startOfWeek)
             },
             "type": 'POST',
             beforeSend: function () {
@@ -101,8 +100,7 @@ function initHeaderMonth(){
             },
             error: function handleAjaxError(xhr, textStatus, error) {
                 jsRemoveWindowLoad();
-                $("#DivErrores").html(xhr.responseText);
-                $('#Errores').modal("show");
+                MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
             }
         },
         "columns": columns,
@@ -119,7 +117,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantLunes']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='' onclick='ObtenerTitutloModal()' data-toggle='modal' data-target='#myModal'>"+full['cantLunes']+"</a></span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'> <a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(0,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantLunes']+"</a></span></div>"; 
+                } 
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantLunes']+"</span></div>";                
                 return boton;
@@ -131,7 +133,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantMartes']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='' onclick='ObtenerTitutloModal()' data-toggle='modal' data-target='#myModal'>"+full['cantMartes']+"</a></span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'> <a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(1,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantMartes']+"</a></span></div>"; 
+                }
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantMartes']+"</span></div>";                
                 return boton;
@@ -143,7 +149,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantMiercoles']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='' onclick='ObtenerTitutloModal()' data-toggle='modal' data-target='#myModal'>"+full['cantMiercoles']+"</a></span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(2,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantMiercoles']+"</a></span></div>"; 
+                }
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantMiercoles']+"</span></div>";                
                 return boton;
@@ -155,7 +165,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantJueves']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='' onclick='ObtenerTitutloModal()' data-toggle='modal' data-target='#myModal'>"+full['cantJueves']+"</a></span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(3,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantJueves']+"</a></span></div>"; 
+                }
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantJueves']+"</span></div>";                
                 return boton;
@@ -167,7 +181,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantViernes']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='' onclick='ObtenerTitutloModal()' data-toggle='modal' data-target='#myModal'>"+full['cantViernes']+"</a></span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(4,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantViernes']+"</a></span></div>"; 
+                }
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantViernes']+"</span></div>";                
                 return boton;
@@ -179,7 +197,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantSabado']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='' onclick='ObtenerTitutloModal()' data-toggle='modal' data-target='#myModal'>"+full['cantSabado']+"</a></span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(5,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantSabado']+"</a></span></div>";
+                } 
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantSabado']+"</span></div>";                
                 return boton;
@@ -191,7 +213,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantDomingo']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='' onclick='ObtenerTitutloModal()' data-toggle='modal' data-target='#myModal'>"+full['cantDomingo']+"</a></span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(6,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantDomingo']+"</a></span></div>"; 
+                }
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantDomingo']+"</span></div>";                
                 return boton;
@@ -199,24 +225,42 @@ function initHeaderMonth(){
         }]
     });
 }
-function ObtenerTitutloModal(){
+function ObtenerTitutloModal(idFecha, idAmbiente, capacidadAmbiente, descripcionAmbiente){
+    var fechaAmbiente = formatDate(currentWeek[idFecha]);
     $('#ambientes_wrap_name').html('');
-    $('#ambientes_wrap_name').append('<div class="ambiente_wrap_modal">'
-                                        +' <span class="ambiente_header">'+'Sala 2'+'</span><br/>'
-                                        +'<span class="ambiente_body">Capacidad: '+'30'+' ambientes</span></div>'
-                                        +'<button class="buton-Nuevo" type="button" onclick="nuevo_()" name="nuevo" id="nuevo">nuevo +</button><br>');
+    $('#ambientes_wrap_name').append('<div class="ambiente_wrap_modal"><span class="ambiente_header">'
+                                    +descripcionAmbiente+'</span><br/><span class="ambiente_body">Capacidad: '
+                                    +capacidadAmbiente+' ambientes</span></div><button class="buton-Nuevo" type="button" onclick="nuevo_()" name="nuevo" id="nuevo">nuevo +</button><br>');
+    jsShowWindowLoad();
+    $.ajax({
+        type: 'POST',
+        url: '/Home/ObtenerEventosAmbienteFecha',
+        dataType: 'json',
+        data: {
+            idAmbiente:idAmbiente,
+            fechaAmbiente: fechaAmbiente
+        },
+        success: function (data) {
+            var listadoEventoDetalle = data;
+            console.log(listadoEventoDetalle);
+            //$('#modalEventos').modal('show'); //Mostrar Modal
+        },
+        complete: function () {
+            jsRemoveWindowLoad();
+        },
+        error: function (xhr, status, error) {
+            jsRemoveWindowLoad();
+            MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
+        }
+    });
 }
 
 function nuevo_(){
-    var contenidoMensaje="En Mantenimiento...";
-    var position = "right";
-    MensajeError(contenidoMensaje, position)
+    MensajeError("Opción en Desarrollo. ", "right");
 }
 
 function CerrarSesion()
 {
-    debugger;
-    //var token = sessionStorage.getItem('token');
     jsShowWindowLoad();
     $.ajax({
         type: 'POST',
@@ -234,8 +278,8 @@ function CerrarSesion()
         },
         error: function (xhr, status, error) {
             jsRemoveWindowLoad();
-            $("#DivErrores").html(xhr.responseText);
-            $('#Errores').modal("show");
+            MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
         }
     });
 }
+
