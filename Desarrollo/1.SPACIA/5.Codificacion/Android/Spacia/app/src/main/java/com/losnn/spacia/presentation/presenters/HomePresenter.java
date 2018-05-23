@@ -63,6 +63,7 @@ public class HomePresenter implements HomeContract.Presenter{
 
     @Override
     public void start() {
+        view.showSwipeLayout();
         JSONObject paramObject = new JSONObject();
         try {
             paramObject.put("date",dateFormat.format(Calendar.getInstance().getTime()));
