@@ -1,12 +1,9 @@
 ﻿<Properties StartupConfiguration="{7925775E-BA51-447A-A2C7-90DE3219AE9D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Spacia.Web/Models/DetalleEventoModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Spacia.Web/wwwroot/css/site/Panel.css">
     <Files>
-      <File FileName="Spacia.Web/wwwroot/script/panel.js" Line="245" Column="13" />
-      <File FileName="Spacia.Web/Views/Home/Panel.cshtml" Line="111" Column="47" />
-      <File FileName="Spacia.Web/Controllers/HomeController.cs" Line="139" Column="1" />
-      <File FileName="Spacia.Web/Clases/EventsRESTService.cs" Line="177" Column="1" />
-      <File FileName="Spacia.Web/Models/DetalleModel.cs" Line="8" Column="32" />
-      <File FileName="Spacia.Web/Models/DetalleEventoModel.cs" Line="6" Column="36" />
+      <File FileName="Spacia.Web/wwwroot/script/panel.js" Line="121" Column="112" />
+      <File FileName="Spacia.Web/Views/Home/Panel.cshtml" Line="38" Column="41" />
+      <File FileName="Spacia.Web/wwwroot/css/site/Panel.css" Line="61" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

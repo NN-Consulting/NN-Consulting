@@ -100,8 +100,7 @@ function initHeaderMonth(){
             },
             error: function handleAjaxError(xhr, textStatus, error) {
                 jsRemoveWindowLoad();
-                $("#DivErrores").html(xhr.responseText);
-                $('#Errores').modal("show");
+                MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
             }
         },
         "columns": columns,
@@ -251,8 +250,7 @@ function ObtenerTitutloModal(idFecha, idAmbiente, capacidadAmbiente, descripcion
         },
         error: function (xhr, status, error) {
             jsRemoveWindowLoad();
-            $("#DivErrores").html(xhr.responseText);
-            $('#Errores').modal("show");
+            MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
         }
     });
 }
@@ -280,8 +278,7 @@ function CerrarSesion()
         },
         error: function (xhr, status, error) {
             jsRemoveWindowLoad();
-            $("#DivErrores").html(xhr.responseText);
-            $('#Errores').modal("show");
+            MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
         }
     });
 }

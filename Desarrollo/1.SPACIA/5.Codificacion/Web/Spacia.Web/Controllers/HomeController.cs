@@ -61,7 +61,7 @@ namespace Spacia.Web.Controllers
             }
             else
             {
-                loginDto.comunicacion.mensaje = "No existe respuesta del servidor. ";
+                loginDto.comunicacion.mensaje = "Ocurrió un error en la comunicación con el servidor. ";
                 loginDto.comunicacion.error = true;
             }
             return Json(loginDto);

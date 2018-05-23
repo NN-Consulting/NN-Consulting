@@ -61,7 +61,7 @@ namespace Spacia.Web.Clases
             }
         }
 
-        public void PostCerrarSesion(string token)
+        public string PostCerrarSesion(string token)
         {
             var data = JsonConvert.SerializeObject(token);
             using (WebClient webClient = new WebClient())
@@ -72,24 +72,13 @@ namespace Spacia.Web.Clases
                     webClient.Headers[HttpRequestHeader.Accept] = "application/json";
                     webClient.Headers[HttpRequestHeader.Authorization] = "Bearer " + token;
 
-                    string htmlResult = webClient.UploadString(uri + "/logout", "");
+                    return webClient.UploadString(uri + "/logout", "");
 
                 }
                 catch (WebException ex)
                 {
-                    switch (ex.Status)
-                    {
-                        case WebExceptionStatus.ConnectFailure:
-                            throw ex;
-                        case WebExceptionStatus.Timeout:
-                            throw ex;
-                        case WebExceptionStatus.NameResolutionFailure:
-                            throw ex;
-                        case WebExceptionStatus.ProtocolError:
-                            throw ex;
-                        default:
-                            throw ex;
-                    }
+                    Console.Write(ex);
+                    return "";
                 }
             }
         }
@@ -104,24 +93,12 @@ namespace Spacia.Web.Clases
                     webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
                     webClient.Headers[HttpRequestHeader.Accept] = "application/json";
 
-                    string htmlResult = webClient.UploadString(uri + "/reset-password", data);
-                    return htmlResult;
+                    return webClient.UploadString(uri + "/reset-password", data);
                 }
                 catch (WebException ex)
                 {
-                    switch (ex.Status)
-                    {
-                        case WebExceptionStatus.ConnectFailure:
-                            throw ex;
-                        case WebExceptionStatus.Timeout:
-                            throw ex;
-                        case WebExceptionStatus.NameResolutionFailure:
-                            throw ex;
-                        case WebExceptionStatus.ProtocolError:
-                            throw ex;
-                        default:
-                            throw ex;
-                    }
+                    Console.Write(ex);
+                    return "";
                 }
             }
         }
@@ -151,12 +128,12 @@ namespace Spacia.Web.Clases
 
                     string htmlResult = webClient.UploadString(uri + "/events",data);
 
-                    AgendamientoModel agendamiento = JsonConvert.DeserializeObject<AgendamientoModel>(htmlResult);
-                    return agendamiento;
+                    return JsonConvert.DeserializeObject<AgendamientoModel>(htmlResult);
                 }
                 catch(Exception e)
                 {
-                    throw e;
+                    Console.Write(e);
+                    return new AgendamientoModel();
                 }
             }
         }
@@ -164,6 +141,7 @@ namespace Spacia.Web.Clases
         public DetalleModel PostDetalleEvents(FiltroEventoDetalleModel filtroEvento, string token)
         {
             var data = JsonConvert.SerializeObject(filtroEvento);
+
             using (WebClient webClient = new WebClient())
             {
                 try
@@ -174,12 +152,12 @@ namespace Spacia.Web.Clases
 
                     string htmlResult = webClient.UploadString(uri + "/events", data);
 
-                    DetalleModel dataDetalleModel = JsonConvert.DeserializeObject<DetalleModel>(htmlResult);
-                    return dataDetalleModel;
+                    return JsonConvert.DeserializeObject<DetalleModel>(htmlResult);
                 }
                 catch (Exception e)
                 {
-                    throw e;
+                    Console.Write(e);
+                    return new DetalleModel();
                 }
             }
         }

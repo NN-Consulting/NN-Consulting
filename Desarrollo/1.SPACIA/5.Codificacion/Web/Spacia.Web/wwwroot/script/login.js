@@ -28,13 +28,13 @@ function initControls()
                     var retorno = jsonCombos.comunicacion; 
                     if(!retorno.error)
                     {
-                        MensajeConfirmacion(retorno.mensaje, 'right');
+                        MensajeConfirmacion("Bienvenido a SPACIA. ", 'right');
                         //sessionStorage.setItem("token", jsonCombos.data.access_token); 
                         window.location.href = '../Home/Panel';
                     }
                     else
                     {
-                        MensajeError(retorno.mensaje, 'right');
+                        MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
                     }
                 },
                 complete: function () {
@@ -42,8 +42,7 @@ function initControls()
                 },
                 error: function (xhr, status, error) {
                     jsRemoveWindowLoad();
-                    $("#DivErrores").html(xhr.responseText);
-                    $('#Errores').modal("show");
+                    MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
                 }
             });
         }

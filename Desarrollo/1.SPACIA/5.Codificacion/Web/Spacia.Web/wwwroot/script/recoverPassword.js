@@ -23,7 +23,7 @@
                     var retorno = jsonCombos 
                     if(retorno != "")
                     {
-                        MensajeConfirmacion(retorno, 'right');
+                        MensajeConfirmacion("El correo de recuperación fue enviado exitosamente. ", 'right');
                     }
                     else
                     {
@@ -36,8 +36,7 @@
                 },
                 error: function (xhr, status, error) {
                     jsRemoveWindowLoad();
-                    $("#DivErrores").html(xhr.responseText);
-                    $('#Errores').modal("show");
+                    MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
                 }
             });
         }
@@ -45,5 +44,8 @@
         {
             MensajeError('Ingrese correctamente el correo eléctronico. ', 'right');
         }
+    });
+    $("#btnReturnLogin").click(function(){
+        window.location.href = '../Home/Login';
     });
 }
