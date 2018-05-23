@@ -241,9 +241,23 @@ function ObtenerTitutloModal(idFecha, idAmbiente, capacidadAmbiente, descripcion
             fechaAmbiente: fechaAmbiente
         },
         success: function (data) {
-            var listadoEventoDetalle = data;
-            console.log(listadoEventoDetalle);
-            //$('#modalEventos').modal('show'); //Mostrar Modal
+            var listadoEventoDetalle = Object.values(data);
+
+            console.log(listadoEventoDetalle)
+           $('#modalEventos').modal('show'); //Mostrar Modal
+           $('#modal-cuerpo').html('');
+          var i;
+          var longitud =listadoEventoDetalle[0].length;
+             for (i = 0; i <longitud ; i++){
+                var j = i+1;
+                $('#modal-cuerpo').append('<div class="ambiente_wrap_body"><div class="numeracion">#'+ j + '</div><span class="hours_event">'
+                                    + listadoEventoDetalle[0][i].hour_from+'   -   '+listadoEventoDetalle[0][i].hour_to+'</span>'
+                                    +'<div style="float:right">'
+                                    +'<div class="numero_users"><img src="../../images/user_count.png"><span class="ambiente_header">' +listadoEventoDetalle[0][i].num_attendants +'</spam></div>'
+                                    +'<div class="numero_resources"><img src="../../images/resource_count.png"><span class="ambiente_header">' + listadoEventoDetalle[0][i].num_resources + '</spam></div></div>'
+                                    +'<br/><span class="descrip_event">'
+                                    + listadoEventoDetalle[0][i].name +'</span></div><hr>'
+                                    + '');}
         },
         complete: function () {
             jsRemoveWindowLoad();

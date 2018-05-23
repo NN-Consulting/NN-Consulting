@@ -279,7 +279,7 @@ table.dataTable thead .sorting_desc {
     display: inline-block;
     text-align: left;
     vertical-align: middle;
-    width: 32%;
+    width: 31%;
 
 }
 
@@ -304,5 +304,46 @@ table.dataTable thead .sorting_desc {
 .ambiente_wrap_modal {
     padding: 0%;
     position: absolute;
+
+}
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #EDF1F2;
+    background-color: #EDF1F2
+}
+.numero_users{
+    position:absolute;
+    right:14%;
+}
+.numero_resources{
+    position:relative;
+}
+.hours_event {
+    color: #BC0034;
+    left:15%;
+    margin: 0 auto;
+    position: absolute;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 20px;
+}
+
+.descrip_event {
+    margin: 0 auto;
+    position: absolute;
+    font-family: Montserrat;
+    left: 15%;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 12px;
+    color: #4E606E
+}
+.numeracion {
+    color: #4CB2E1;
+    position: absolute;
+    font-size: 20px;
 
 }
