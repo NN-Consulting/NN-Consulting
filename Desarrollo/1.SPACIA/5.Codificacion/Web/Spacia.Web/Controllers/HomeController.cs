@@ -128,6 +128,18 @@ namespace Spacia.Web.Controllers
                 aaData = agendaMientoDto.data.rooms
             });
         }
+
+        [HttpPost]
+        public ActionResult ObtenerEventosAmbienteFecha(string fechaAmbiente, int idAmbiente)
+        {
+            var myData = GrabarSesion.TheData;
+            FiltroEventoDetalleModel filtroEvento = new FiltroEventoDetalleModel();
+            filtroEvento.date = fechaAmbiente;
+            filtroEvento.room_id = idAmbiente;
+            DetalleModel dataDetalleEventos = service.PostDetalleEvents(filtroEvento, myData.data.access_token);
+            return Json(dataDetalleEventos);
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

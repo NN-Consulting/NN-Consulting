@@ -1,14 +1,12 @@
-﻿<Properties StartupConfiguration="{8846B011-E817-4649-A324-E4AF1CDB38C1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Spacia.Web/Controllers/HomeController.cs">
+﻿<Properties StartupConfiguration="{7925775E-BA51-447A-A2C7-90DE3219AE9D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Spacia.Web/Models/DetalleEventoModel.cs">
     <Files>
-      <File FileName="Spacia.Web/Clases/EventsRESTService.cs" Line="152" Column="1" />
-      <File FileName="Spacia.Web/Controllers/HomeController.cs" Line="101" Column="53" />
-      <File FileName="Spacia.Web/wwwroot/script/panel.js" Line="67" Column="91" />
-      <File FileName="Spacia.Web/wwwroot/script/login.js" Line="25" Column="19" />
-      <File FileName="Spacia.Web/wwwroot/script/otros.js" Line="46" Column="25" />
-      <File FileName="Spacia.Web/Models/AgendamientoModel.cs" Line="12" Column="26" />
-      <File FileName="Spacia.Web/Models/DataEventosModel.cs" Line="10" Column="29" />
-      <File FileName="Spacia.Web/Models/AmbienteModel.cs" Line="16" Column="45" />
+      <File FileName="Spacia.Web/wwwroot/script/panel.js" Line="245" Column="13" />
+      <File FileName="Spacia.Web/Views/Home/Panel.cshtml" Line="111" Column="47" />
+      <File FileName="Spacia.Web/Controllers/HomeController.cs" Line="139" Column="1" />
+      <File FileName="Spacia.Web/Clases/EventsRESTService.cs" Line="177" Column="1" />
+      <File FileName="Spacia.Web/Models/DetalleModel.cs" Line="8" Column="32" />
+      <File FileName="Spacia.Web/Models/DetalleEventoModel.cs" Line="6" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -161,5 +161,27 @@ namespace Spacia.Web.Clases
             }
         }
 
+        public DetalleModel PostDetalleEvents(FiltroEventoDetalleModel filtroEvento, string token)
+        {
+            var data = JsonConvert.SerializeObject(filtroEvento);
+            using (WebClient webClient = new WebClient())
+            {
+                try
+                {
+                    webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
+                    webClient.Headers[HttpRequestHeader.Accept] = "application/json";
+                    webClient.Headers[HttpRequestHeader.Authorization] = "Bearer " + token;
+
+                    string htmlResult = webClient.UploadString(uri + "/events", data);
+
+                    DetalleModel dataDetalleModel = JsonConvert.DeserializeObject<DetalleModel>(htmlResult);
+                    return dataDetalleModel;
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
+            }
+        }
     }
 }
