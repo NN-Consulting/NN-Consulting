@@ -2,9 +2,9 @@
     var opts = {
         "closeButton": true,
         "debug": false,
-        "positionClass": "toast-top-" + position + "",
+        "positionClass": "toast-bottom-" + position + "",
         "onclick": null,
-        "timeOut": "10000",
+        "timeOut": "5000",
         "showEasing": "swing",
         "hideEasing": "linear",
         "showMethod": "fadeIn",
@@ -37,4 +37,11 @@ function jsRemoveWindowLoad() {
 function jsShowWindowLoad() {
     $("div#divLoading").addClass('show');
 
+}
+
+function formatDate(date){
+    var myDateString = ('0' + date.getDate()).slice(-2) + '/'
+             + ('0' + (date.getMonth()+1)).slice(-2) + '/'
+             + date.getFullYear();
+    return myDateString;
 }

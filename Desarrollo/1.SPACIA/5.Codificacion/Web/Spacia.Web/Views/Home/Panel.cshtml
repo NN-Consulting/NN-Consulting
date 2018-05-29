@@ -18,6 +18,10 @@
     <meta http-equiv="Pragma" content="no-cache">
     <script type="text/javascript" src="@Url.Content("~/script/otros.js?v=")@valRand"></script>
     <script type="text/javascript" src="@Url.Content("~/script/panel.js?v=")@valRand"></script>
+
+    <style>
+
+    </style>
 </head>
 <body>
     @Html.Partial("~/Views/Shared/Loading.cshtml")
@@ -31,15 +35,35 @@
                     <span class="lbl_planificador">Planificador</span>
                 </div>
                 <div class="col-xs-8 col-md-8 center_absolute_div"> 
-                    <img id ="left_arrow" class ="col-md-1 col-lg-1" src="@Url.Content("~/images/left_arrow.png")" />
-                    <span class="lbl_month col-sm-8 col-md-9">16 Mar - 22 Mar</span>
-                    <img id ="right_arrow" class ="col-md-1 col-lg-1"src="@Url.Content("~/images/right_arrow.png")" />
+                    <img id ="left_arrow" class ="col-md-1 col-lg-1" src="@Url.Content("~/images/left_arrow.png")" href="javascript:void(0);" />
+                    <span class="lbl_month col-sm-8 col-md-9">25 Jun - 1 jul</span>
+                    <img id ="right_arrow" class ="col-md-1 col-lg-1"src="@Url.Content("~/images/right_arrow.png")" href="javascript:void(0);" />
                 </div>
             </div>
             </div>
                
         <div class="row">
-          <div class="col-xs-2 col-md-2 menu_lateral_panel">SPACIA</div>
+          <div class="col-xs-2 col-md-2 menu_lateral_panel">
+              <div class="menu">
+                 <ul>
+                  <li class="separador"><a href="#" title="Planificador"><img class="imagen_menu" src="~/images/calendar.png">Planificador</a></li>
+                  <li><a href="#" onclick="nuevo_()" title="Gestor"><img class="imagen_menu" src="~/images/settings.png">Gestor</a></li>
+                  <div class="sub_menu">
+                    <li><a href="#" onclick="nuevo_()" title="Equipos"><img class="imagen_menu" src="~/images/team.png">Equipos</a></li>
+                    <li><a href="#" onclick="nuevo_()" title="Usuarios"><img class="imagen_menu" src="~/images/user.png">Usuarios</a></li>
+                    <li><a href="#" onclick="nuevo_()" title="Recursos"><img class="imagen_menu" src="~/images/resource.png">Recursos</a></li>
+                    <li><a href="#" onclick="nuevo_()" title="Ambientes"><img class="imagen_menu" src="~/images/room.png">Ambientes</a></li>
+                  </div>
+                 </ul>
+
+              </div>
+              <div class="menu_cerrar">
+                 <ul>
+                    <li><a href="#" onClick ="CerrarSesion();" title="Cerrar Sesión"><img class="imagen_menu" src="~/images/logout.png">Cerrar sesión</a></li>
+                 </ul>          
+              </div>
+          </div>
+              
           <div class="col-xs-10 col-md-10 zona_trabajo_panel">
             <div class="col-md-3" style="padding:0px;">
                 <div class="ambiente_wrap_header">
@@ -82,8 +106,31 @@
           </div>
         </div>
     </div>
-    <script type="text/javascript">
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalEventos" role="dialog">
+        <div class="modal-dialog">
         
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <div id="ambientes_wrap_name">
+                 
+              </div>
+            </div>
+            <div class="modal-body" id="modal-cuerpo">
+              <div id="ambientes_wrap_body">
+                 
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- Fin Modal-->
+
+    <script type="text/javascript">
+        //var token = {}
         $(document).ready(function () {
             initControlsPanel();
         });

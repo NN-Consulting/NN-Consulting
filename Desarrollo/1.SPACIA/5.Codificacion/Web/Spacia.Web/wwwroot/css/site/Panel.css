@@ -55,9 +55,10 @@
     max-height: 100%;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%) ;
+    transform: translateY(-50%);
     right: 55%;
-    z-index:1;
+    z-index: 1;
+    cursor:pointer;
 }
 
 #right_arrow {
@@ -67,7 +68,7 @@
     top: 50%;
     transform: translateY(-50%);
     right: 0;
-
+    cursor: pointer;
 }
 
 .lbl_month {
@@ -76,7 +77,7 @@
     font-family: Montserrat;
     font-style: normal;
     font-weight: 100;
-    padding-left: 25%;
+    padding-left: 29%;
     padding-right: 1%;
     float: right;
 
@@ -211,5 +212,138 @@ table.dataTable thead .sorting_desc {
     font-weight: normal;
     line-height: normal;
     font-size: 12px
+
+}
+
+.menu {
+    top: 4%;
+    position: relative;
+    right:9%;
+}
+.sub_menu {
+    position: relative;
+    left: 20%;
+}
+.menu ul, .menu_cerrar ul {
+    list-style-type: none;
+    left: 23.08%;
+    right: 0%;
+    top: 0.63%;
+    bottom: 89.57%;
+    font-family: Montserrat;
+    font-weight: lighter;
+    line-height: normal;
+    font-size: 13pt
+
+}
+.menu ul li a, .menu_cerrar ul li a {
+    color: #F5F5F5;
+    text-decoration: none;
+    display: block;
+    padding: 10px 10px 10px 20px;
+    text-transform: capitalize
+}
+
+.imagen_menu {
+    margin-right: 10%;
+    width: 23px;
+    height: 23px;
+
+}
+.menu_cerrar {
+    top: 43%;
+    position: relative;
+    right: 9%
+
+}
+
+.no_decoration {
+    text-decoration: none;
+    color: #4CB2E1
+
+}
+.modal {
+    text-align: center;
+    padding: 0 !important
+}
+
+    .modal:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px /* Adjusts for spacing */
+    }
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    width: 31%;
+
+}
+
+.buton-Nuevo {
+    position: relative;
+    background: #4CB2E1;
+    left: 80%;
+    top: 25%;
+    bottom: 25%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+    color: #F5F5F5;
+    width: 20%;
+    padding: 1%
+
+}
+
+.ambiente_wrap_modal {
+    padding: 0%;
+    position: absolute;
+
+}
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #EDF1F2;
+    background-color: #EDF1F2
+}
+.numero_users{
+    position:absolute;
+    right:14%;
+}
+.numero_resources{
+    position:relative;
+}
+.hours_event {
+    color: #BC0034;
+    left:15%;
+    margin: 0 auto;
+    position: absolute;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 20px;
+}
+
+.descrip_event {
+    margin: 0 auto;
+    position: absolute;
+    font-family: Montserrat;
+    left: 15%;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 12px;
+    color: #4E606E
+}
+.numeracion {
+    color: #4CB2E1;
+    position: absolute;
+    font-size: 20px;
 
 }

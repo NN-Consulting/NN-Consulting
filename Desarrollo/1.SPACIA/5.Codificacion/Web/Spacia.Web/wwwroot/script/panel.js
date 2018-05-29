@@ -63,8 +63,8 @@ function initHeaderMonth(){
         for(index in json.aaData)
         {
             $('#ambientes_wrap').append('<div class="ambiente_wrap_body" style="height:60px;text-align:left;padding:10px;">'
-                                        +' <span class="ambiente_header">'+json.aaData[index].descEvento+'</span><br/>'
-                                        +'<span class="ambiente_body">Capacidad: '+json.aaData[index].capacidad+' ambientes</span></div>');
+                                        +' <span class="ambiente_header">'+json.aaData[index].name+'</span><br/>'
+                                        +'<span class="ambiente_body" style="padding: 5px;">Capacidad: '+json.aaData[index].capacity+' ambientes</span></div>');
         }
     }).dataTable({
         fixedHeader: {
@@ -74,6 +74,7 @@ function initHeaderMonth(){
         "responsive": true,
         "ordering": false,
         "bSort": false,
+        "processing": false,
         "searching": false,
         "paging":   false,
         "ordering": false,
@@ -82,6 +83,7 @@ function initHeaderMonth(){
         "ajax": {
             "url": "/Home/ObtenerListaAgendamiento",
             "data": {
+                "date": formatDate(startOfWeek)
             },
             "type": 'POST',
             beforeSend: function () {
@@ -99,8 +101,7 @@ function initHeaderMonth(){
             },
             error: function handleAjaxError(xhr, textStatus, error) {
                 jsRemoveWindowLoad();
-                $("#DivErrores").html(xhr.responseText);
-                $('#Errores').modal("show");
+                MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
             }
         },
         "columns": columns,
@@ -117,7 +118,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantLunes']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'>"+full['cantLunes']+"</span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'> <a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(0,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantLunes']+"</a></span></div>"; 
+                } 
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantLunes']+"</span></div>";                
                 return boton;
@@ -129,7 +134,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantMartes']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'>"+full['cantMartes']+"</span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'> <a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(1,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantMartes']+"</a></span></div>"; 
+                }
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantMartes']+"</span></div>";                
                 return boton;
@@ -141,7 +150,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantMiercoles']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'>"+full['cantMiercoles']+"</span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(2,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantMiercoles']+"</a></span></div>"; 
+                }
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantMiercoles']+"</span></div>";                
                 return boton;
@@ -153,7 +166,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantJueves']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'>"+full['cantJueves']+"</span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(3,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantJueves']+"</a></span></div>"; 
+                }
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantJueves']+"</span></div>";                
                 return boton;
@@ -165,7 +182,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantViernes']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'>"+full['cantViernes']+"</span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(4,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantViernes']+"</a></span></div>"; 
+                }
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantViernes']+"</span></div>";                
                 return boton;
@@ -177,7 +198,11 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantSabado']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'>"+full['cantSabado']+"</span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(5,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantSabado']+"</a></span></div>";
+                } 
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantSabado']+"</span></div>";                
                 return boton;
@@ -189,12 +214,86 @@ function initHeaderMonth(){
             "render": function (data, type, full, meta) {
                 var boton = "";
                 if(full['cantDomingo']>0)
-                    boton = "<div class='day_wrap_body'><span class='day_exist_body'>"+full['cantDomingo']+"</span></div>"; 
+                {
+                    boton = "<div class='day_wrap_body'><span class='day_exist_body'><a class='no_decoration' href='javascript:void(0);' ";
+                    boton += "onclick=\"ObtenerTitutloModal(6,"+full['room_id']+", "+full['capacity']+",'"+full['name']+"');\" ";
+                    boton += ">"+full['cantDomingo']+"</a></span></div>"; 
+                }
                 else
                     boton = "<div class='day_wrap_body'><span class='day_no_exist_body'>"+full['cantDomingo']+"</span></div>";                
                 return boton;
             },
         }]
+    });
+}
+function ObtenerTitutloModal(idFecha, idAmbiente, capacidadAmbiente, descripcionAmbiente){
+    var fechaAmbiente = formatDate(currentWeek[idFecha]);
+    $('#ambientes_wrap_name').html('');
+    $('#ambientes_wrap_name').append('<div class="ambiente_wrap_modal"><span class="ambiente_header">'
+                                    +descripcionAmbiente+'</span><br/><span style="padding: 5px; "class="ambiente_body">Capacidad: '
+                                    +capacidadAmbiente+' ambientes</span></div><button class="buton-Nuevo" type="button" onclick="nuevo_()" name="nuevo" id="nuevo">nuevo +</button><br>');
+    jsShowWindowLoad();
+    $.ajax({
+        type: 'POST',
+        url: '/Home/ObtenerEventosAmbienteFecha',
+        dataType: 'json',
+        data: {
+            idAmbiente:idAmbiente,
+            fechaAmbiente: fechaAmbiente
+        },
+        success: function (data) {
+           var listadoEventoDetalle = Object.values(data);
+
+           $('#modalEventos').modal('show'); //Mostrar Modal
+           $('#modal-cuerpo').html('');
+           var i;
+           var longitud =listadoEventoDetalle[0].length;
+             for (i = 0; i <longitud ; i++){
+                var j = i+1;
+                $('#modal-cuerpo').append('<div class="ambiente_wrap_body"><div class="numeracion">#'+ j + '</div><span class="hours_event">'
+                                    + listadoEventoDetalle[0][i].hour_from+'   -   '+listadoEventoDetalle[0][i].hour_to+'</span>'
+                                    +'<div style="float:right">'
+                                    +'<div class="numero_users"><img src="../../images/user_count.png"><span class="ambiente_header">' +listadoEventoDetalle[0][i].num_attendants +'</spam></div>'
+                                    +'<div class="numero_resources"><img src="../../images/resource_count.png"><span class="ambiente_header">' + listadoEventoDetalle[0][i].num_resources + '</spam></div></div>'
+                                    +'<br/><span class="descrip_event">'
+                                    + listadoEventoDetalle[0][i].name +'</span></div><hr>'
+                                    + '');}
+        },
+        complete: function () {
+            jsRemoveWindowLoad();
+        },
+        error: function (xhr, status, error) {
+            jsRemoveWindowLoad();
+            MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
+        }
+    });
+}
+
+function nuevo_(){
+    MensajeError("Opción en Desarrollo. ", "right");
+}
+
+function CerrarSesion()
+{
+    jsShowWindowLoad();
+    $.ajax({
+        type: 'POST',
+        url: '/Home/CerrarSesion',
+        dataType: 'json',
+        data: {
+            //token:token
+        },
+        success: function (data) {
+            //sessionStorage.setItem('token',"");
+            window.location.href = '../Home/Panel';
+        },
+        complete: function () {
+            jsRemoveWindowLoad();
+        },
+        error: function (xhr, status, error) {
+            jsRemoveWindowLoad();
+            MensajeError("Ha ocurrido un error. Intente nuevamente", 'right');
+        }
     });
 }
 

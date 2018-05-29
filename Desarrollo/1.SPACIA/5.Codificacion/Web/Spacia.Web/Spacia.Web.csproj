@@ -100,4 +100,10 @@
   <ItemGroup>
     
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Clases\Informacion.cs" />
+    <Compile Remove="Clases\MiContexto.cs" />
+    <Compile Remove="Global.asax.cs" />
+    <Compile Remove="Models\DataDetalleModel.cs" />
+  </ItemGroup>
 </Project>
