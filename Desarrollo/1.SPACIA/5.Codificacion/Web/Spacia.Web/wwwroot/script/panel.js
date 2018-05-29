@@ -74,6 +74,7 @@ function initHeaderMonth(){
         "responsive": true,
         "ordering": false,
         "bSort": false,
+        "processing": false,
         "searching": false,
         "paging":   false,
         "ordering": false,
@@ -229,7 +230,7 @@ function ObtenerTitutloModal(idFecha, idAmbiente, capacidadAmbiente, descripcion
     var fechaAmbiente = formatDate(currentWeek[idFecha]);
     $('#ambientes_wrap_name').html('');
     $('#ambientes_wrap_name').append('<div class="ambiente_wrap_modal"><span class="ambiente_header">'
-                                    +descripcionAmbiente+'</span><br/><span class="ambiente_body">Capacidad: '
+                                    +descripcionAmbiente+'</span><br/><span style="padding: 5px; "class="ambiente_body">Capacidad: '
                                     +capacidadAmbiente+' ambientes</span></div><button class="buton-Nuevo" type="button" onclick="nuevo_()" name="nuevo" id="nuevo">nuevo +</button><br>');
     jsShowWindowLoad();
     $.ajax({
@@ -241,13 +242,12 @@ function ObtenerTitutloModal(idFecha, idAmbiente, capacidadAmbiente, descripcion
             fechaAmbiente: fechaAmbiente
         },
         success: function (data) {
-            var listadoEventoDetalle = Object.values(data);
+           var listadoEventoDetalle = Object.values(data);
 
-            console.log(listadoEventoDetalle)
            $('#modalEventos').modal('show'); //Mostrar Modal
            $('#modal-cuerpo').html('');
-          var i;
-          var longitud =listadoEventoDetalle[0].length;
+           var i;
+           var longitud =listadoEventoDetalle[0].length;
              for (i = 0; i <longitud ; i++){
                 var j = i+1;
                 $('#modal-cuerpo').append('<div class="ambiente_wrap_body"><div class="numeracion">#'+ j + '</div><span class="hours_event">'

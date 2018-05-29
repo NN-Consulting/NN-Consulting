@@ -4,7 +4,7 @@
         "debug": false,
         "positionClass": "toast-bottom-" + position + "",
         "onclick": null,
-        "timeOut": "10000",
+        "timeOut": "5000",
         "showEasing": "swing",
         "hideEasing": "linear",
         "showMethod": "fadeIn",
