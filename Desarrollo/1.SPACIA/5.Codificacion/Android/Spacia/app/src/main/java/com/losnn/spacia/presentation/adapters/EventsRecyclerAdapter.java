@@ -38,7 +38,7 @@ public class EventsRecyclerAdapter extends RecyclerView.Adapter<EventsRecyclerAd
         holder.txtNameEvent.setText(currentItem.getName());
         holder.txtPeople.setText(""+currentItem.getNum_resources()+" personas");
         holder.txtRoom.setText(currentItem.getRoom().getName());
-        holder.txtDate.setText(currentItem.getDate()+" "+currentItem.getHour_from()+" - "+currentItem.getHour_to());
+        holder.txtDate.setText(currentItem.getDate()+"    "+currentItem.getHour_from()+" - "+currentItem.getHour_to());
         holder.recyclerView.setAdapter(new ResourcesRecyclerAdapter(context,currentItem.getResources()));
     }
 
@@ -61,7 +61,7 @@ public class EventsRecyclerAdapter extends RecyclerView.Adapter<EventsRecyclerAd
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(itemView);
+            ButterKnife.bind(this,itemView);
         }
     }
 }

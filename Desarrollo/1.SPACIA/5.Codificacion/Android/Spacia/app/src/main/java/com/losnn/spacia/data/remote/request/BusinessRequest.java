@@ -29,8 +29,8 @@ public interface BusinessRequest {
     @POST(Constants.RESET_PASSWORD)
     Call<Void> sendResetPassword (@Header("Accept") String accept, @Header("Content-type") String content,@Body RequestBody email);
 
-    @POST(Constants.GET_EVENTS)
+    @GET(Constants.GET_EVENTS)
     Call<Data> getEvents (@Header("Content-type") String contentType,
-                          @Header("Accept") String accept, @Header("Authorization") String token,@Body RequestBody body);
+                          @Header("Accept") String accept, @Header("Authorization") String token);//,@Body RequestBody body);
 
 }

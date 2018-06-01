@@ -284,5 +284,6 @@
 
     <color name="material_black">#ff000000</color>
     <color name="material_white">#ffffff</color>
+    <color name="colorIcon">#ececec</color>
 
 </resources>

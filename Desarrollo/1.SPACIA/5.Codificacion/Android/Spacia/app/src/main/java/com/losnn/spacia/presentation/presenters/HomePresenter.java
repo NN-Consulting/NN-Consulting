@@ -64,16 +64,16 @@ public class HomePresenter implements HomeContract.Presenter{
     @Override
     public void start() {
         view.showSwipeLayout();
-        JSONObject paramObject = new JSONObject();
+        /*JSONObject paramObject = new JSONObject();
         try {
             paramObject.put("date",dateFormat.format(Calendar.getInstance().getTime()));
         } catch (JSONException e) {
             e.printStackTrace();
         }
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), (paramObject.toString()));
-
+*/
         BusinessRequest request = ServiceFactory.createService(BusinessRequest.class);
-        Call<Data> call = request.getEvents(Constants.CONTENT_TYPE_JSON,Constants.CONTENT_TYPE_JSON,"Bearer "+sessionManager.getUserAccessToken(),body);
+        Call<Data> call = request.getEvents(Constants.CONTENT_TYPE_JSON,Constants.CONTENT_TYPE_JSON,"Bearer "+sessionManager.getUserAccessToken());//,body);
         call.enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {

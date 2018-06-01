@@ -1,33 +1,34 @@
 package com.losnn.spacia.presentation.activities;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.losnn.spacia.R;
+import com.losnn.spacia.Spacia;
 import com.losnn.spacia.base.BaseActivity;
+import com.losnn.spacia.data.local.SessionManager;
 import com.losnn.spacia.data.remote.response.EventResponse;
 import com.losnn.spacia.presentation.adapters.EventsRecyclerAdapter;
-import com.losnn.spacia.presentation.adapters.ResourcesRecyclerAdapter;
 import com.losnn.spacia.presentation.contracts.HomeContract;
-import com.losnn.spacia.presentation.contracts.LoginContract;
 import com.losnn.spacia.presentation.fragments.LoadingMessageDialogFragment;
 import com.losnn.spacia.presentation.presenters.HomePresenter;
-import com.losnn.spacia.presentation.presenters.LoginPresenter;
-import com.mobsandgeeks.saripaar.Validator;
+import com.losnn.spacia.utils.ConnectivityReceiver;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends BaseActivity implements HomeContract.View {
+public class HomeActivity extends BaseActivity implements HomeContract.View,ConnectivityReceiver.ConnectivityReceiverListener {
 
     @BindView(R.id.swipeRefreshLayout)
     SwipeRefreshLayout swipeRefreshLayout;
@@ -35,6 +36,10 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
     RecyclerView recyclerView;
     @BindView(R.id.emptyR)
     LinearLayout ivEmpty;
+    @BindView(R.id.txt_name)
+    TextView txtName;
+    @BindView(R.id.txt_internet)
+            TextView txtInternet;
 
     LinearLayoutManager layoutManager;
 
@@ -43,6 +48,7 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
     HomeContract.Presenter presenter;
 
     LoadingMessageDialogFragment dialogFragment;
+    SessionManager sessionManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,11 +62,22 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
                 presenter.logout();
             }
         });
+        sessionManager = new SessionManager(getApplicationContext());
+
+
+        txtName.setText(sessionManager.getUserEntity().getFirst_name().substring(0,1));
 
         layoutManager = new LinearLayoutManager(getApplicationContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                presenter.start();
+            }
+        });
 
         presenter.start();
 
@@ -135,5 +152,26 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
             ivEmpty.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        final IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+
+        ConnectivityReceiver connectivityReceiver = new ConnectivityReceiver();
+        registerReceiver(connectivityReceiver, intentFilter);
+
+        Spacia.getInstance().setConnectivityListener(this);
+    }
+
+    @Override
+    public void onNetworkConnectionChanged(boolean isConnected) {
+        if(isConnected){
+            txtInternet.setVisibility(View.GONE);
+        }else{
+            txtInternet.setVisibility(View.VISIBLE);
+        }
     }
 }
