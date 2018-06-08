@@ -13,6 +13,91 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Views\Home\EmptyHTMLFile.html" />
+    <None Remove="wwwroot\css\bootstrap.css.map" />
+    <None Remove="wwwroot\css\bootstrap.min.css.map" />
+    <None Remove="wwwroot\css\bootstrap-theme.css.map" />
+    <None Remove="wwwroot\css\bootstrap-theme.min.css.map" />
+    <None Remove="wwwroot\js\vertical-timeline\fonts\fontawesome.eot" />
+    <None Remove="wwwroot\js\vertical-timeline\fonts\fontawesome.ttf" />
+    <None Remove="wwwroot\js\vertical-timeline\fonts\fontawesome.woff" />
+    <None Remove="wwwroot\js\vertical-timeline\fonts\readme.md" />
+    <None Remove="wwwroot\js\vertical-timeline\fonts\timelineicons\ecoico.eot" />
+    <None Remove="wwwroot\js\vertical-timeline\fonts\timelineicons\ecoico.ttf" />
+    <None Remove="wwwroot\js\vertical-timeline\fonts\timelineicons\ecoico.woff" />
+    <None Remove="wwwroot\js\vertical-timeline\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\script\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\css\site\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\js\site.js" />
+    <Content Remove="wwwroot\js\site.min.js" />
+    <Content Remove="wwwroot\js\vertical-timeline\css\component.css" />
+    <Content Remove="wwwroot\js\vertical-timeline\fonts\fontawesome.svg" />
+    <Content Remove="wwwroot\js\vertical-timeline\fonts\timelineicons\ecoico.dev.svg" />
+    <Content Remove="wwwroot\js\vertical-timeline\fonts\timelineicons\ecoico.svg" />
+    <Content Remove="wwwroot\js\vertical-timeline\fonts\timelineicons\license.txt" />
+    <Content Remove="wwwroot\js\vertical-timeline\fonts\timelineicons\Read Me.txt" />
+    <Content Remove="wwwroot\js\vertical-timeline\index.html" />
+    <Content Remove="wwwroot\js\vertical-timeline\-index.html" />
+    <Content Remove="wwwroot\js\vertical-timeline\js\modernizr.custom.js" />
+    <Content Remove="wwwroot\js\jquery-ui\css\no-theme\jquery-ui-1.10.3.custom.css" />
+    <Content Remove="wwwroot\js\jquery-ui\css\no-theme\jquery-ui-1.10.3.custom.min.css" />
+    <Content Remove="wwwroot\js\jquery-ui\js\jquery-1.9.1.js" />
+    <Content Remove="wwwroot\js\jquery-ui\js\jquery-ui-1.10.3.custom.js" />
+    <Content Remove="wwwroot\js\jquery-ui\js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Remove="wwwroot\js\jquery-ui\js\jquery-ui-1.10.3.minimal.min.js" />
+    <Content Remove="wwwroot\js\gsap\easing\EasePack.min.js" />
+    <Content Remove="wwwroot\js\gsap\jquery.gsap.min.js" />
+    <Content Remove="wwwroot\js\gsap\main-gsap.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\AttrPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\BezierPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\ColorPropsPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\CSSPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\CSSRulePlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\DirectionalRotationPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\EaselPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\KineticPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\Physics2DPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\PhysicsPropsPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\RaphaelPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\RoundPropsPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\ScrambleTextPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\ScrollToPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\TextPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\plugins\ThrowPropsPlugin.min.js" />
+    <Content Remove="wwwroot\js\gsap\TimelineLite.min.js" />
+    <Content Remove="wwwroot\js\gsap\TimelineMax.min.js" />
+    <Content Remove="wwwroot\js\gsap\TweenLite.min.js" />
+    <Content Remove="wwwroot\js\gsap\TweenMax.min.js" />
+    <Content Remove="wwwroot\js\gsap\utils\Draggable.min.js" />
+    <Content Remove="wwwroot\js\gsap\utils\SplitText.min.js" />
+    <Content Remove="wwwroot\lib\bootstrap\.bower.json" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Remove="wwwroot\lib\jquery\LICENSE.txt" />
+    <Content Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <Content Remove="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <Content Remove="wwwroot\lib\jquery-validation\.bower.json" />
+    <Content Remove="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <Content Remove="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <Content Remove="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <Content Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <Content Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Remove="wwwroot\lib\jquery-validation-unobtrusive\.bower.json" />
+    <Content Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Remove="wwwroot\script\MantenerSesion.js" />
+    <Content Remove="Views\Home\About.cshtml" />
+    <Content Remove="Views\Home\Contact.cshtml" />
+    <Content Remove="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    
   </ItemGroup>
 </Project>

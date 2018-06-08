@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Loading";
+}
+<style>
+    #divLoading{ display : none; }
+    #divLoading.show
+    {
+        display : block;
+        position : fixed;
+        z-index: 100;
+        background-image : url('@Url.Content("~/images/loading-image.gif")');
+        background-color:#666;
+        opacity : 0.4;
+        background-repeat : no-repeat;
+        background-position : center;
+        left : 0;
+        bottom : 0;
+        right : 0;
+        top : 0;
+    }
+</style>
+<div id="divLoading">
+</div>
