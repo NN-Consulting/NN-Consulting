@@ -24,19 +24,9 @@ namespace Spacia.Web.Controllers
             
             return View("RecoverPassword");
         }
-
-        public IActionResult About()
+        public IActionResult Panel()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View("Panel");
         }
 
         public IActionResult Error()
