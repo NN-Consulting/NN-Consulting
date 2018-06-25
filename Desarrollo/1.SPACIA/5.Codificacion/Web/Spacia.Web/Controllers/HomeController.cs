@@ -4,12 +4,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Spacia.Web.Clases;
 using Spacia.Web.Models;
 
 namespace Spacia.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private EventsRESTService service = new EventsRESTService();
+
         public IActionResult Index()
         {
             return View();
@@ -32,6 +35,10 @@ namespace Spacia.Web.Controllers
         [HttpPost]
         public ActionResult ObtenerListaAgendamiento()
         {
+            string data = "Eduardo";
+            List<AgendamientoModel> listadoAgendamientoDto = service.PostEvents(data);
+            listadoAgendamientoDto = service.GetEvents();
+
             List<AgendamientoModel> listadoAgendamiento = new List<AgendamientoModel>();
             AgendamientoModel eventoAgendado = new AgendamientoModel();
             eventoAgendado.idEvento = "1";

@@ -1,14 +1,15 @@
-﻿<Properties StartupConfiguration="{7925775E-BA51-447A-A2C7-90DE3219AE9D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Spacia.Web/wwwroot/script/otros.js">
+﻿<Properties StartupConfiguration="{8846B011-E817-4649-A324-E4AF1CDB38C1}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Spacia.Web/wwwroot/css/site/Panel.css">
     <Files>
-      <File FileName="Spacia.Web/Views/Home/Panel.cshtml" Line="115" Column="38" />
-      <File FileName="Spacia.Web/wwwroot/script/panel.js" Line="211" Column="2" />
-      <File FileName="Spacia.Web/wwwroot/script/otros.js" Line="1" Column="1" />
+      <File FileName="Spacia.Web/Controllers/HomeController.cs" Line="39" Column="1" />
+      <File FileName="Spacia.Web/wwwroot/css/site/Panel.css" Line="307" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/EduardoAngulo/Desktop/NN-Consulting/Desarrollo/1.SPACIA/5.Codificacion/Web/Spacia.Web/Controllers/HomeController.cs" relfile="Spacia.Web/Controllers/HomeController.cs" line="39" column="37" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

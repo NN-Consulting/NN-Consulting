@@ -14,5 +14,11 @@ namespace Spacia.Web.Models
         public int cantSabado = 0;
         public int cantDomingo = 0;
         public int capacidad = 0;
+
+        //tests
+        public int id { get; set; }
+        public int userId { get; set; }
+        public string title { get; set; }
+        public string body { get; set; }
     }
 }
