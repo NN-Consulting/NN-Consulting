@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado Normal -->
+    <item>
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+            <item>
+                <shape android:shape="rectangle">
+                    <padding android:top="2dp" android:bottom="2dp" android:left="2dp" android:right="2dp" />
+                    <corners android:radius="40dp" />
+                    <solid android:color="@color/colorAccent" />
+                    <stroke android:width="0.5dp" android:color="@color/material_grey600"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
