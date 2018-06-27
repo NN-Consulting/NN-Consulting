@@ -32,13 +32,15 @@ public class EventsRecyclerAdapter extends RecyclerView.Adapter<EventsRecyclerAd
         return new ViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         EventResponse currentItem = list.get(position);
         holder.txtNameEvent.setText(currentItem.getName());
         holder.txtPeople.setText(""+currentItem.getNum_resources()+" personas");
         holder.txtRoom.setText(currentItem.getRoom().getName());
-        holder.txtDate.setText(currentItem.getDate()+"    "+currentItem.getHour_from()+" - "+currentItem.getHour_to());
+        holder.txtDate.setText(currentItem.getDate());
+        holder.txtHour.setText(""+currentItem.getHour_from()+" - "+currentItem.getHour_to());
         holder.recyclerView.setAdapter(new ResourcesRecyclerAdapter(context,currentItem.getResources()));
     }
 
@@ -56,6 +58,8 @@ public class EventsRecyclerAdapter extends RecyclerView.Adapter<EventsRecyclerAd
         TextView txtDate;
         @BindView(R.id.txt_people)
         TextView txtPeople;
+        @BindView(R.id.txt_hour)
+        TextView txtHour;
         @BindView(R.id.recyclerView)
         RecyclerView recyclerView;
 
